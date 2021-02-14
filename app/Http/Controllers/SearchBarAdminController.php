@@ -14,7 +14,7 @@ class SearchBarAdminController extends Controller
     {
 
         $specialities = Speciality::orderBy('speciality_name', 'asc')->get();
-        return view('admin.search_bar_gestionnaire', compact('specialities')); 
+        return view('admin.search_bar_gestionnaire', compact('specialities'));
     }
 
     public function search_city_admin_input(Request $request)
@@ -84,7 +84,7 @@ class SearchBarAdminController extends Controller
             ->where('address', 'LIKE', '%' . $city . '%')
             ->where('speciality', '=', $speciality)->paginate(20);
 
-        return view('admin.find_medecin_admin_1', compact('medecins'));
+        return view('admin.find_medecin_admin_1', compact('medecins', 'city', 'speciality'));
     }
 
     public function find_medecin_admin_2(Request $request)
@@ -100,7 +100,7 @@ class SearchBarAdminController extends Controller
             ->orWhere('medecin_last_name', 'LIKE', $name . '%')->paginate(20);
 
 
-        return view('admin.find_medecin_admin_2', compact('medecins'));
+        return view('admin.find_medecin_admin_2', compact('medecins', 'name'));
     }
 
     public function form_medecin_admin($id)

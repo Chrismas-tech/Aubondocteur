@@ -95,14 +95,17 @@ class MedecinController extends Controller
 
                     $response = json_decode($response_json, true);
 
-                    /*Saving the gps_coord*/
+                    /*Saving the gps_coord and if they exist*/
 
-                    //Latitude
-                    $medecin->gps_lat = $response["features"][0]["geometry"]["coordinates"][1];
-                    //Longitude
-                    $medecin->gps_lng = $response["features"][0]["geometry"]["coordinates"][0];
+                    if ($response["features"]) {
 
-                    $medecin->save();
+                        //Latitude
+                        $medecin->gps_lat = $response["features"][0]["geometry"]["coordinates"][1];
+                        //Longitude
+                        $medecin->gps_lng = $response["features"][0]["geometry"]["coordinates"][0];
+
+                        $medecin->save();
+                    }
                 }
             }
 

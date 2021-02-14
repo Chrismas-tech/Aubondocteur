@@ -16,7 +16,7 @@
         @else
             <div class="bg-white p-4 rounded">
                 <div class="d-flex justify-content-center p_texte_2 mb-3">
-                    {{ $medecins->links() }}
+                    {{ $medecins->appends(['first_or_last_name_input_admin' => $name])->links() }}
                 </div>
                 <div class="d-flex justify-content-between flex-wrap">
                     <table class="table table-striped table-white border">
@@ -156,8 +156,8 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="d-flex justify-content-center p_texte_2 mt-3">
-                    {{ $medecins->links() }}
+                <div class="d-flex justify-content-center p_texte_2 mb-3">
+                    {{ $medecins->appends(['first_or_last_name_input_admin' => $name])->links() }}
                 </div>
             </div>
         @endif

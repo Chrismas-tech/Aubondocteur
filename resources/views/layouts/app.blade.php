@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>AubonMédecin</title>
+    <title>aubonmedecin</title>
 
     <!-- Fonts -->
 
@@ -53,7 +53,7 @@
                     <a class="btn btn-primary p_texte_1 text-white mr-4 media_button_welcome_page_nav"
                         href="{{ url('/') }}">
                         <img src="{{ asset('img/stethoscope.png') }}" alt="" class="icon_img media_icon_nav">
-                        AubonMédecin.com
+                        aubonmedecin.com
                     </a>
                 </div>
 
@@ -71,7 +71,7 @@
                         <div class="btn_accueil">
                             <a class="btn btn-primary p_texte_1 text-white mr-4 media_button_welcome_page_nav"
                                 href="{{ route('login') }}"><img src="{{ asset('img/login.png') }}" alt=""
-                                    class="icon_img media_icon_nav">Se connecter</a>
+                                    class="icon_img media_icon_nav"> Se connecter</a>
                         </div>
 
                         <div class="btn_accueil">
@@ -114,7 +114,7 @@
     <div>
         <footer class="text-center bg-primary text-white p-4">
             <h3 class="font-italic m-0 p-0 p_texte_2 text-white media_footer_font_size">Copyright
-                &copy; 2020 Christophe Luciani, all Rights Reserved - 2020</h3>
+                &copy; 2020 Christophe Luciani, all Rights Reserved</h3>
         </footer>
     </div>
 

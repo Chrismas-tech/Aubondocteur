@@ -22,11 +22,8 @@
 
             </div>
 
-
             <div class="d-flex mb-5 mt-5 justify-content-between">
-
                 <div class="card mr-4 opacity_1 col-3">
-
                     <div class="p-4 mb-2 ">
 
                         <div>

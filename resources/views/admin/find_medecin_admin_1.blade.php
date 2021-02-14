@@ -3,7 +3,8 @@
 
     <div class="jumbotron text-primary bg_photo_3 min_height mb-0">
         <div class="text-center">
-            <a href="{{ route('gestionnaire')}}" class="p_texte_1 text-white btn-primary btn btn-lg lora mb-4 mt-3">Revenir au gestionnaire de recherche</a>
+            <a href="{{ route('gestionnaire') }}"
+                class="p_texte_1 text-white btn-primary btn btn-lg lora mb-4 mt-3">Revenir au gestionnaire de recherche</a>
         </div>
 
         @if ($medecins->isEmpty())
@@ -16,7 +17,7 @@
         @else
             <div class="bg-white p-4 rounded" style="width:98%;margin:auto;">
                 <div class="d-flex justify-content-center p_texte_2 mb-3">
-                    {{ $medecins->links() }}
+                    {{ $medecins->appends(['city_input_admin' => $city, 'select_accueil_admin' => $speciality])->links() }}
                 </div>
                 <div class="d-flex justify-content-between flex-wrap">
                     <table class="table table-striped table-white border">
@@ -58,7 +59,8 @@
 
                                         <div class="d-flex mt-3 justify-content-center">
 
-                                            <form action="{{ route('form_medecin_admin', ['medecin_id' => $medecin->id]) }}"
+                                            <form
+                                                action="{{ route('form_medecin_admin', ['medecin_id' => $medecin->id]) }}"
                                                 method="POST">
                                                 @csrf
                                                 <div>

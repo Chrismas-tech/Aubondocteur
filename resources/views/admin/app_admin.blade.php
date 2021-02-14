@@ -54,7 +54,7 @@
                 <div>
                     <a class="btn btn-primary p_texte_1 text-white mr-4" href="{{ url('/') }}">
                         <img src="{{ asset('img/stethoscope.png') }}" alt="" class="icon_img">
-                        AubonMédecin.com
+                        aubonmedecin.com
                     </a>
                 </div>
             </div>

@@ -404,7 +404,7 @@ table td {
 #div_result_li_city {
     z-index: 1;
     position: absolute;
-    padding-left: 10px;
+    padding-left: 8px;
     padding-top: 10px;
     overflow: auto;
     max-height: 150px;

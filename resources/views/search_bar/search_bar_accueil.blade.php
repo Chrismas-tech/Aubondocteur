@@ -18,12 +18,12 @@
         <input disabled name="input_search_accueil" type="text" id="input_search_accueil"
             class="form-control @error('input_search_accueil') is-invalid @enderror"
             placeholder="Recherchez une ville ou un code postal">
-        <div id="city_list"></div>
+        <div id="city_list" class="text-left"></div>
         @csrf
     </div>
 
     <div class="search_bar_flex_basis_3">
-        <button type="submit" style="outline:none;" class="bg-danger" id="input_accueil_button"><img class="loupe"
+        <button type="submit" style="outline:none;" class="bg-gray" id="input_accueil_button"><img class="loupe"
                 src="{{ asset('img/loupe-1.png') }}"></button>
     </div>
     </form>
@@ -117,13 +117,13 @@
                 //   $('#input_search_accueil').attr('disabled', true);
                 if ($('#input_search_accueil').val().length > 2 && $('#select_accueil').val()) {
 
-                    $('#input_accueil_button').removeClass('bg-danger');
+                    $('#input_accueil_button').removeClass('bg-gray');
                     $('#input_accueil_button').addClass('bg_green');
 
                 } else {
 
                     $('#input_accueil_button').removeClass('bg_green');
-                    $('#input_accueil_button').addClass('bg-danger');
+                    $('#input_accueil_button').addClass('bg-gray');
 
                 }
 
