@@ -5,13 +5,14 @@
 
         <div class="bg-white mt-5 mb-5 jumb_1_vignette p-md-5 p-sm-4 p-3 media_window_white_width">
 
+ 
             <div class="text-center">
                 <h1 class="display-4 lobster media_title_welcome_page">Vous avez trouvé un médecin prés de chez vous mais vous hésitez à le
                     consulter
                     ?</h1>
-            </div>
 
-            <p class="lead lora p_texte_1 mt-5 mb-5 media_info_welcome_page">Sur notre plateforme <span class="bold">aubonmedecin.com</span>, consultez les avis positifs sur vos praticiens et trouvez en un rapidement près de chez vous !</p>
+
+            <p class="lead lora p_texte_1 lobster mt-5 mb-5 media_info_welcome_page">Sur notre plateforme <span class="bold">aubonmedecin.com</span>, consultez les avis positifs sur vos praticiens et trouvez en un rapidement près de chez vous !</p>
 
             <hr class="">
 

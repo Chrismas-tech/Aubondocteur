@@ -71,14 +71,13 @@
                         <div class="btn_accueil">
                             <a class="btn btn-primary p_texte_1 text-white mr-4 media_button_welcome_page_nav"
                                 href="{{ route('login') }}"><img src="{{ asset('img/login.png') }}" alt=""
-                                    class="icon_img media_icon_nav"> Login</a>
+                                    class="icon_img media_icon_nav">Se connecter</a>
                         </div>
 
                         <div class="btn_accueil">
                             <a class="btn btn-primary p_texte_1 text-white media_button_welcome_page_nav"
                                 href="{{ route('login') }}"><img src="{{ asset('img/sign-in.png') }}" alt=""
-                                    class="icon_img media_icon_nav"> Sign
-                                in</a>
+                                    class="icon_img media_icon_nav"> S'enregistrer</a>
                         </div>
                     </div>
                 @else
