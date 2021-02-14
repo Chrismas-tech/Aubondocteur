@@ -1,0 +1,972 @@
+::-webkit-scrollbar {
+    width: 0px;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */
+}
+
+input::placeholder {
+    font-style: italic;
+}
+
+.Roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+.lobster {
+    font-family: 'Lobster', cursive;
+    text-shadow: 3px 2px 2px rgb(223, 220, 220);
+}
+
+.garamond {
+    font-family: 'EB Garamond', serif;
+    font-size: 30px;
+    background-color: rgb(190, 26, 14);
+}
+
+.cardo {
+    font-family: 'Domine', serif;
+}
+
+
+/* BACKGROUNDS PHOTOS */
+
+
+/* BACKGROUNDS PHOTOS */
+
+
+/* BACKGROUNDS PHOTOS */
+
+
+/* BACKGROUNDS PHOTOS */
+
+
+/* BACKGROUNDS PHOTOS */
+
+.bg_photo_1 {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("/img/doctor-1.jpg");
+    border-radius: 0px;
+}
+
+.bg_photo_2 {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("/img/doctor-2.jpg");
+    border-radius: 0px;
+}
+
+.bg_photo_3 {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("/img/doctor-3.jpg");
+    border-radius: 0px;
+}
+
+.bg_photo_4 {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("/img/doctor-4.jpg");
+    border-radius: 0px;
+    min-height: 1000px;
+}
+
+.bg_photo_6 {
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-image: url("/img/doctor-6.jpg");
+    border-radius: 0px;
+    height: 1000px;
+}
+
+.banner_list_medecins {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("/img/banner-list-medecins.png");
+    border-radius: 0px;
+}
+
+
+/*////////////////////////////*/
+
+
+/*////////////////////////////*/
+
+
+/*////////////////////////////*/
+
+
+/*////////////////////////////*/
+
+
+/*////////////////////////////*/
+
+.bg_gradient_1 {
+    background: linear-gradient(#0563ce, #06eb5e);
+}
+
+.bg_gradient_2 {
+    background: linear-gradient(0.25turn, #1993c7, #0ee9de, #08eb1b);
+}
+
+.bg_lightgrey {
+    background-color: rgb(10, 226, 255);
+}
+
+.jumb_1_vignette {
+    opacity: 0.95;
+    width: 58%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgb(100, 99, 99);
+}
+
+.p_texte_1 {
+    font-size: 30px;
+    color: black;
+}
+
+.p_texte_28 {
+    font-size: 28px;
+    color: black;
+}
+
+.p_texte_2 {
+    font-size: 20px;
+    color: black;
+}
+
+.p_texte_3 {
+    font-size: 15px;
+    color: black;
+}
+
+.p_texte_4 {
+    font-size: 10px;
+    color: black;
+}
+
+.lora {
+    font-family: 'Lora', serif;
+    color: black;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.light-blue {
+    background-color: rgb(198, 230, 241);
+}
+
+.opacity_1 {
+    opacity: 0.93;
+}
+
+.window_shadow {
+    box-shadow: 2px 2px 2px rgb(100, 99, 99);
+}
+
+.modify_modal {
+    width: 500px;
+    margin: auto;
+}
+
+.icon_img {
+    width: 50px;
+    height: 50px;
+}
+
+.icon_avis_button {
+    width: 40px;
+    height: 40px;
+}
+
+.icon_info {
+    width: 20px;
+    height: 20px;
+}
+
+.icon_info_docteur {
+    width: 55px;
+    height: 55px;
+}
+
+.min_height {
+    min-height: 780px;
+}
+
+.height100 {
+    height: 100%;
+}
+
+table th,
+table td {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+/* SEARCHBAR ACCUEIL */
+
+
+/* SEARCHBAR ACCUEIL */
+
+
+/* SEARCHBAR ACCUEIL */
+
+
+/* SEARCHBAR ACCUEIL */
+
+
+/* SEARCHBAR ACCUEIL */
+
+
+/* SEARCHBAR ACCUEIL */
+
+#input_search_accueil:hover {
+    box-shadow: 3px 0px 8px rgb(100, 100, 100);
+}
+
+#select_accueil:hover {
+    box-shadow: 0px 0px 8px rgb(100, 100, 100);
+}
+
+#select_accueil {
+    border: 2px solid rgb(12, 115, 199);
+    border-radius: 20px 0px 0px 20px;
+    border-right: none;
+    font-size: 25px;
+}
+
+#input_search_accueil {
+    border: 2px solid rgb(12, 115, 199);
+    font-size: 25px;
+    border-right: 1px solid rgb(12, 115, 199);
+    border-radius: 0px;
+}
+
+#input_accueil_button {
+    border: 2px solid rgb(12, 115, 199);
+    border-radius: 0px 20px 20px 0px;
+    padding: 10px;
+}
+
+.bg_green {
+    background-color: rgb(89, 255, 13);
+}
+
+.loupe {
+    width: 27px;
+    height: auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.search_bar_flex_basis_1 {
+    flex-basis: 55%;
+}
+
+.search_bar_flex_basis_2 {
+    flex-basis: 50%;
+}
+
+.search_bar_flex_basis_3 {
+    flex-basis: 2%;
+}
+
+#city_list {
+    position: relative;
+}
+
+.city_search_result {
+    opacity: 0.95;
+    border-radius: 10px;
+    box-shadow: 5px 3px 3px rgb(141, 139, 139);
+    border: solid 1px lightgray;
+    max-height: 200px;
+    overflow: auto;
+    position: absolute;
+    ;
+    width: 100%;
+}
+
+.a_result {
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    color: rgb(42, 148, 240);
+}
+
+.a_result:hover {
+    background-color: #0a93e2;
+    color: white;
+    padding: 5px;
+    font-size: 23px;
+}
+
+.map {
+    height: 455px;
+    width: 600px;
+}
+
+
+/*FORM REVIEW COMPTE*/
+
+
+/*FORM REVIEW COMPTE*/
+
+
+/*FORM REVIEW COMPTE*/
+
+.li_address {
+    cursor: pointer;
+    list-style: none;
+    background-color: white;
+    font-family: lora;
+    text-align: left;
+    padding: 12px;
+    font-size: 18px;
+    border-bottom: rgb(197, 195, 195) solid 1px;
+    border-radius: 2px;
+}
+
+.li_address:hover {
+    background-color: #0a93e2;
+    color: white;
+    padding: 5px;
+    font-size: 23px;
+}
+
+
+/*////////////////////////////*/
+
+
+/*////////////////////////////*/
+
+
+/*////////////////////////////*/
+
+
+/*////////////////////////////*/
+
+
+/* GESTIONNAIRE */
+
+
+/* GESTIONNAIRE */
+
+
+/* GESTIONNAIRE */
+
+
+/* GESTIONNAIRE */
+
+
+/* GESTIONNAIRE */
+
+
+/* GESTIONNAIRE */
+
+.cell_width_30 {
+    width: 30%;
+}
+
+#select_accueil_admin:hover {
+    box-shadow: 3px 0px 8px rgb(100, 100, 100);
+}
+
+#select_accueil_admin {
+    border: 2px solid rgb(12, 115, 199);
+    border-radius: 20px 20px 20px 20px;
+    font-size: 22px;
+}
+
+
+/*CITY SEARCH ADMIN*/
+
+
+/*CITY SEARCH ADMIN*/
+
+
+/*CITY SEARCH ADMIN*/
+
+
+/*CITY SEARCH ADMIN*/
+
+#city_result_input_admin {
+    position: relative;
+}
+
+#div_result_li_city {
+    z-index: 1;
+    position: absolute;
+    padding-left: 10px;
+    padding-top: 10px;
+    overflow: auto;
+    max-height: 150px;
+    width: 100%;
+    background-color: white;
+    border: solid 2px #0a93e2;
+    border-radius: 0px 0px 20px 20px;
+}
+
+.li_city_result_admin {
+    color: #0a93e2;
+    font-size: 20px;
+}
+
+.li_city_result_admin:hover {
+    color: white;
+    background-color: #0a93e2;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+
+/*NAME SEARCH ADMIN*/
+
+
+/*NAME SEARCH ADMIN*/
+
+
+/*NAME SEARCH ADMIN*/
+
+
+/*NAME SEARCH ADMIN*/
+
+#div_result_li_name {
+    z-index: 1;
+    position: absolute;
+    padding-left: 10px;
+    background-color: white;
+    font-family: lora;
+    font-size: 23px;
+}
+
+
+/****************************************************************/
+
+
+/****************************************************************/
+
+
+/****************************************************************/
+
+
+/****************************************************************/
+
+
+/****************************************************************/
+
+
+/****************************************************************/
+
+
+/*MEDIA QUERIES*/
+
+
+/*MEDIA QUERIES*/
+
+
+/*MEDIA QUERIES*/
+
+
+/*MEDIA QUERIES*/
+
+
+/*MEDIA QUERIES*/
+
+
+/*MEDIA QUERIES*/
+
+
+/*MEDIA QUERIES*/
+
+
+/*MEDIA QUERIES*/
+
+
+/*MEDIA QUERIES*/
+
+@media screen and (min-width: 1875px) {
+    .media_window_white_width {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 1875px) {
+    /*PAGE ACCUEIL*/
+    /*PAGE ACCUEIL*/
+    #input_search_accueil {
+        font-size: 22px;
+    }
+    #select_accueil {
+        font-size: 22px;
+    }
+    #input_accueil_button {
+        padding: 8px;
+        height: 47px;
+    }
+    .media_window_white_width {
+        width: 65%;
+    }
+    .media_title_card {
+        font-size: 24px;
+    }
+    /*LISTE MEDECINS*/
+    /*LISTE MEDECINS*/
+    .media_name_medecin {
+        font-size: 27px;
+    }
+    .media_address_medecin {
+        font-size: 20px;
+    }
+    .media_phone_medecin {
+        font-size: 20px;
+    }
+    .media_give_review_medecin {
+        font-size: 18px;
+    }
+    .media_see_review_medecin {
+        font-size: 18px;
+    }
+    .media_icon_info_medecin {
+        width: 20px;
+        height: 20px;
+    }
+    /*LOGIN - REGISTER*/
+}
+
+@media screen and (max-width: 1700px) {
+    /*LISTE MEDECINS*/
+    /*LISTE MEDECINS*/
+    .media_title_welcome_page {
+        font-size: 50px;
+    }
+    .media_info_welcome_page {
+        font-size: 30px;
+    }
+    .map {
+        height: 458px;
+        width: 450px;
+    }
+    .media_medecin_card {
+        height: auto;
+        width: 800px;
+    }
+    .media_icon_profile_medecin {
+        height: 40px;
+        width: 40px;
+    }
+    .media_icon_info_medecin {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media screen and (max-width: 1573px) {
+    /*PAGE ACCUEIL*/
+    /*PAGE ACCUEIL*/
+    #input_accueil_button {
+        padding: 6px;
+        height: 47px;
+    }
+    /*LISTE MEDECINS*/
+    /*LISTE MEDECINS*/
+    .media_info_welcome_page {
+        font-size: 25px;
+    }
+    .media_window_white_width {
+        width: 68%;
+    }
+    .media_accueil_error_1 {
+        font-size: 18px;
+    }
+    .media_accueil_error_2 {
+        font-size: 23px;
+    }
+    .media_give_review_medecin {
+        font-size: 15px;
+    }
+    .media_see_review_medecin {
+        font-size: 15px;
+    }
+    .media_nb_review_medecin {
+        font-size: 22px;
+    }
+    .map {
+        height: 445px;
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 1488px) {
+    /*LISTE MEDECINS*/
+    /*LISTE MEDECINS*/
+    .media_title_welcome_page {
+        font-size: 45px;
+    }
+    .media_info_welcome_page {
+        font-size: 25px;
+    }
+    .media_button_welcome_page_nav {
+        font-size: 22px;
+    }
+    .media_icon_nav {
+        width: 40px;
+        height: 40px;
+    }
+    .media_window_white_width {
+        width: 80%;
+    }
+    .media_button_end_welcome_page {
+        font-size: 24px;
+    }
+    .media_li_result_font {
+        font-size: 17px;
+    }
+    .media_medecin_card {
+        height: auto;
+    }
+    .media_icon_profile_medecin {
+        height: 40px;
+        width: 40px;
+    }
+    .media_icon_info_medecin {
+        width: 20px;
+        height: 20px;
+    }
+    .media_icon_review_liste_medecin {
+        width: 28px;
+        height: 28px;
+    }
+    .media_name_medecin {
+        font-size: 20px;
+    }
+    .media_address_medecin {
+        font-size: 18px;
+    }
+    .media_phone_medecin {
+        font-size: 18px;
+    }
+    .media_give_review_medecin {
+        font-size: 13px;
+    }
+    .media_see_review_medecin {
+        font-size: 13px;
+    }
+    .map {
+        height: 428px;
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 1273px) {
+    /*PAGE ACCUEIL*/
+    /*PAGE ACCUEIL*/
+    #input_search_accueil {
+        font-size: 18px;
+    }
+    #select_accueil {
+        font-size: 18px;
+    }
+    #input_accueil_button {
+        height: 41px;
+    }
+    .loupe {
+        width: 22px;
+        height: auto;
+    }
+    /*LISTE MEDECINS*/
+    /*LISTE MEDECINS*/
+    .media_accueil_error_1 {
+        font-size: 15px;
+    }
+    .media_title_card {
+        font-size: 20px;
+    }
+    .map {
+        height: 427px;
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    /*LISTE MEDECINS*/
+    /*LISTE MEDECINS*/
+    .media_nb_review_medecin {
+        font-size: 18px;
+    }
+    .media_give_review_medecin {
+        font-size: 11px;
+    }
+    .media_see_review_medecin {
+        font-size: 11px;
+    }
+    .map {
+        height: 410px;
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 1075px) {
+    /*PAGE ACCUEIL*/
+    /*PAGE ACCUEIL*/
+    .media_title_welcome_page {
+        font-size: 40px;
+    }
+    .media_info_welcome_page {
+        font-size: 20px;
+    }
+    .media_button_end_welcome_page {
+        font-size: 18px;
+    }
+    .media_button_welcome_page_nav {
+        font-size: 18px;
+    }
+    .media_icon_nav {
+        width: 30px;
+        height: 30px;
+    }
+    .media_li_result_font {
+        font-size: 15px;
+    }
+    .a_result:hover {
+        background-color: #0a93e2;
+        color: white;
+        padding: 5px;
+        font-size: 17px;
+    }
+    .media_accueil_error_1 {
+        font-size: 12px;
+    }
+    .media_accueil_error_2 {
+        font-size: 18px;
+    }
+    /*LISTE MEDECINS*/
+    /*LISTE MEDECINS*/
+    .media_icon_review_liste_medecin {
+        display: none;
+    }
+    .media_nb_review_medecin {
+        font-size: 18px;
+    }
+    .map {
+        height: 410px;
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    /*LISTE MEDECINS*/
+    /*LISTE MEDECINS*/
+    .map {
+        height: 321px;
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 958px) {
+    /*PAGE ACCUEIL*/
+    /*PAGE ACCUEIL*/
+    .media_title_welcome_page {
+        font-size: 35px;
+    }
+    .media_info_welcome_page {
+        font-size: 18px;
+    }
+    .loupe {
+        width: 23px;
+        height: auto;
+    }
+    .media_footer_font_size {
+        font-size: 13px;
+    }
+    .media_accueil_error_1 {
+        font-size: 10px;
+        padding: 2px;
+    }
+    .media_button_welcome_page_nav {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    /*PAGE ACCUEIL*/
+    /*PAGE ACCUEIL*/
+    .media_button_end_welcome_page {
+        font-size: 14px;
+    }
+    .media_title_welcome_page {
+        font-size: 30px;
+    }
+    .media_li_result_font {
+        padding: 2px;
+        font-size: 12px;
+    }
+    .a_result:hover {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 856px) {
+    /*LISTE MEDECINS*/
+    /*LISTE MEDECINS*/
+    .media_name_medecin {
+        font-size: 17px;
+    }
+    .media_address_medecin {
+        font-size: 15px;
+    }
+    .media_phone_medecin {
+        font-size: 15px;
+    }
+    .media_nb_review_medecin {
+        font-size: 14px;
+    }
+    .media_give_review_medecin {
+        font-size: 10px;
+    }
+    .media_see_review_medecin {
+        font-size: 10px;
+    }
+    .map {
+        height: 313px;
+        width: 240px;
+    }
+    .media_icon_nav {
+        width: 20px;
+        height: 20px;
+    }
+    .media_icon_review_liste_medecin {
+        display: none;
+    }
+    .media_button_welcome_page_nav {
+        font-size: 15px;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    /*PAGE ACCUEIL*/
+    /*PAGE ACCUEIL*/
+    .media_button_end_welcome_page {
+        font-size: 15px;
+        padding: 10px;
+    }
+    .media_title_welcome_page {
+        font-size: 30px;
+    }
+    #input_search_accueil {
+        font-size: 14px;
+    }
+    #select_accueil {
+        font-size: 14px;
+    }
+    #input_accueil_button {
+        padding: 3px;
+        height: 35px;
+    }
+    .loupe {
+        width: 15px;
+        height: auto;
+    }
+    .media_li_result_font {
+        font-size: 10px;
+    }
+    .a_result:hover {
+        font-size: 12px;
+    }
+    .media_footer_font_size {
+        font-size: 12px;
+    }
+    .media_accueil_error_1 {
+        font-size: 8px;
+        padding: 2px;
+    }
+    .media_accueil_error_2 {
+        font-size: 15px;
+    }
+    /*LISTE MEDECINS*/
+    /*LISTE MEDECINS*/
+    .media_icon_profile_medecin {
+        height: 40px;
+        width: 40px;
+    }
+    .media_icon_info_medecin {
+        width: 20px;
+        height: 20px;
+    }
+    .media_icon_review_liste_medecin {
+        width: 28px;
+        height: 28px;
+    }
+    .media_name_medecin {
+        font-size: 19px;
+    }
+    .media_address_medecin {
+        font-size: 15px;
+    }
+    .media_phone_medecin {
+        font-size: 15px;
+    }
+    .media_nb_review_medecin {
+        font-size: 18px;
+    }
+    .media_give_review_medecin {
+        font-size: 16px;
+    }
+    .media_see_review_medecin {
+        font-size: 16px;
+    }
+    .media_medecin_card {
+        width: 99%;
+        margin: auto;
+    }
+    .map,
+    .media_leaflet_card {
+        margin: auto;
+        height: 250px !important;
+        width: 99% !important;
+    }
+    .media_button_welcome_page_nav {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 616px) {
+    /*PAGE ACCUEIL*/
+    /*PAGE ACCUEIL*/
+    .media_icon_nav {
+        display: none;
+    }
+    .media_button_welcome_page_nav {
+        font-size: 12px;
+    }
+    .media_title_welcome_page {
+        font-size: 23px;
+    }
+    .media_info_welcome_page {
+        font-size: 15px;
+    }
+    .media_accueil_error_2 {
+        font-size: 12px;
+    }
+    /*LISTE MEDECINS*/
+    /*LISTE MEDECINS*/
+    .media_give_review_medecin {
+        font-size: 12px;
+    }
+    .media_see_review_medecin {
+        font-size: 12px;
+    }
+    .media_button_welcome_page_nav {
+        font-size: 14px;
+        padding: 8px;
+        margin: 10px;
+    }
+}
