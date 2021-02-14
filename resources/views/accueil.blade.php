@@ -11,7 +11,7 @@
                     ?</h1>
             </div>
 
-            <p class="lead lora p_texte_1 mt-5 mb-5 media_info_welcome_page">Sur notre plateforme <span class="bold">AuBonMédecin.com</span>, trouvez rapidement un médecin près de chez vous et consultez uniquement les avis positifs sur vos praticiens !</p>
+            <p class="lead lora p_texte_1 mt-5 mb-5 media_info_welcome_page">Sur notre plateforme <span class="bold">aubonmedecin.com</span>, consultez les avis positifs sur vos praticiens et trouvez en un rapidement près de chez vous !</p>
 
             <hr class="">
 
