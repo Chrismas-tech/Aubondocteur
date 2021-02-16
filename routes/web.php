@@ -23,7 +23,6 @@ Auth::routes();
 //GUEST//
 //GUEST//
 
-
 //PAGE ACCUEIL
 Route::get('/', 'MedecinController@index')->name('accueil');
 
