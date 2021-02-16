@@ -14,7 +14,7 @@
                 <div class="card-body pd-4 bg_gradient_1">
 
                     <div style="width:80%;margin:auto">
-                        <form action="{{ route('store_medecin') }}" method="POST" class="text-center">
+                        <form action="{{ route('add_medecin') }}" method="POST" class="text-center">
                             @csrf
 
                             <div class="input-group-lg mt-4 mb-4">
@@ -85,11 +85,6 @@
                             <div>
                                 <input hidden name="gps_lat" id="gps_lat" type="text">
                                 <input hidden name="gps_lng" id="gps_lng" type="text">
-
-                                <input hidden name="city" id="city" type="text">
-                                <input hidden name="zip_code" id="zip_code" type="text">
-
-
                             </div>
 
                             <div class="input-group-lg mt-4 mb-4">
@@ -100,7 +95,16 @@
                                 @error('phone')
                                     <div class="text-white mt-1 text-left">{{ $errors->first('phone') }}</div>
                                 @enderror
+                            </div>
 
+                            <div class="input-group-lg mt-4 mb-4">
+                                <input id="email" type="tel" class="form-control @error('email') is-invalid @enderror"
+                                    name="email" value="{{ old('email') }}" autocomplete="email" autofocus
+                                    placeholder="Email du médedecin (falcutatif">
+
+                                @error('email')
+                                    <div class="text-white mt-1 text-left">{{ $errors->first('phone') }}</div>
+                                @enderror
                             </div>
 
                             <div>
@@ -120,7 +124,7 @@
             </form>
 
             <div class="text-center mt-5 mb-5">
-                <a href="{{ route('compte.index') }}" class="btn btn-primary btn-lg">
+                <a href="{{ route('accueil_compte') }}" class="btn btn-primary btn-lg">
                     Revenir sur votre espace personnel
                 </a>
             </div>

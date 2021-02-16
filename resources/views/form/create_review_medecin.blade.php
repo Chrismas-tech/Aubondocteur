@@ -74,7 +74,7 @@
         </form>
 
         <div class="text-center mt-5 mb-5">
-            <a href="{{ route('compte.index') }}" class="btn btn-primary btn-lg">
+            <a href="{{ route('accueil_compte') }}" class="btn btn-primary btn-lg">
                 Revenir sur votre espace personnel
             </a>
         </div>

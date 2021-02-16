@@ -13,6 +13,17 @@
                     </h1>
                 </div>
 
+                @if (session()->has('password_modified'))
+                    <div class="alert alert-success" role="alert">
+                        <h2>{{ session()->get('password_modified') }}<h2>
+                    </div>
+                @endif
+
+                @if (session()->has('name_modified'))
+                    <div class="alert alert-success" role="alert">
+                        <h2>{{ session()->get('name_modified') }}</h2>
+                    </div>
+                @endif
 
                 @if (session()->has('message'))
                     <div class="alert alert-warning" role="alert">
@@ -47,7 +58,7 @@
 
                             <div class="mt-3 mb-3 card text-center" id="delete_form" hidden>
 
-                                <form action="{{ route('compte.destroy', ['user_id' => $user->id]) }}" method="POST">
+                                <form action="{{ route('compte_destroy', ['user_id' => $user->id]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <p class="lobster card-header m-0 p_texte_1">Supprimer votre compte entraînera la
@@ -97,7 +108,8 @@
 
                     @if (Session::has('review_error'))
                         <div class="d-flex justify-content-center">
-                            <div class="alert alert-danger p_texte_1 text-danger">{{ Session::get('review_error') }}</div>
+                            <div class="alert alert-danger p_texte_1 text-danger">{{ Session::get('review_error') }}
+                            </div>
                         </div>
                     @endif
 
@@ -112,7 +124,8 @@
                         bon fonctionnement du site.</h3>
 
                     <div class="text-center mt-5 mb-5 ">
-                        <a class="btn btn-primary btn-lg p_texte_28 text-white" href="{{ '/' }}" role="button">Effectuez une
+                        <a class="btn btn-primary btn-lg p_texte_28 text-white" href="{{ '/' }}"
+                            role="button">Effectuez une
                             recherche et laissez une note positive sur votre médecin favoris !</a>
                     </div>
 
@@ -124,8 +137,8 @@
                         </p>
                         <hr class="mt-5 mb-5">
                         <div class="text-center">
-                            <a class="btn btn-success btn-lg btn p_texte_28 text-white" href="{{ route('compte.create') }}"
-                                role="button">Cliquez ici</a>
+                            <a class="btn btn-success btn-lg btn p_texte_28 text-white"
+                                href="{{ route('create_medecin') }}" role="button">Cliquez ici</a>
                         </div>
                     </div>
 
@@ -161,9 +174,9 @@
 
                                         @error('current_password')
                                             <p class="text-danger"">{{ $message }}</p>
-                                                                                @enderror
+                                                                                        @enderror
 
-                                                                                <div class=" input-group-lg mb-3">
+                                                                                        <div class=" input-group-lg mb-3">
                                             <label for="new_password">Votre nouveau mot de passe</label>
 
                                             <input id="new_password" type="password"
@@ -185,9 +198,9 @@
 
                                 @error('new_confirm_password')
                                     <p class="text-danger"">{{ $message }}</p>
-                                                                                @enderror
+                                                                                        @enderror
 
-                                                                                <div class=" text-right">
+                                                                                        <div class=" text-right">
                                     <button type=" submit" class="btn btn-primary">Modifier le mot de
                                         passe</button>
                             </div>

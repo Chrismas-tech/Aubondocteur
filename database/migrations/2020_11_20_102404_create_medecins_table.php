@@ -19,13 +19,11 @@ class CreateMedecinsTable extends Migration
 
             $table->string('medecin_first_name');
             $table->string('medecin_last_name');
-
-            $table->string('city');
-            $table->text('address');
-            $table->string('zip_code');
-            $table->string('phone');
-            
             $table->string('speciality');
+
+            $table->text('address');
+            $table->string('phone');
+            $table->string('email');
             $table->integer('nb_reviews')->unsigned()->default(0);
             
             $table->decimal('gps_lat',12,10)->default(0)->nullable();

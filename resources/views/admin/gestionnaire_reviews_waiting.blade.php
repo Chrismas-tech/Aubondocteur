@@ -8,7 +8,6 @@
                 <div class="text-center d-flex justify-content-center">
                     <h1 class="display-4 lobster bg-white p-2 rounded">Il n'y a pas de résultat pour le moment...</h1>
                 </div>
-   
 
                 <div class="d-flex justify-content-center p_texte_2 mt-4">
                     {{ $review_status_waiting->links() }}

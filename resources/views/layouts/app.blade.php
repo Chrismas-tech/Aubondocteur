@@ -59,7 +59,7 @@
 
                 <div>
                     <a class="btn btn-primary p_texte_1 text-white mr-4 media_button_welcome_page_nav"
-                        href="{{ url('contact_form_index') }}">
+                        href="{{ url('contact_page') }}">
                         <img src="{{ asset('img/email.png') }}" alt="" class="icon_img media_icon_nav"> Contactez-nous
                     </a>
                 </div>
@@ -84,7 +84,7 @@
                     <div class="d-flex">
                         <div>
                             <a class="btn btn-primary p_texte_1 text-white mr-4 media_button_welcome_page_nav"
-                                href="{{ route('compte.index') }}">
+                                href="{{ route('accueil_compte') }}">
                                 <img src="{{ asset('img/espace-personnel.png') }}" alt=""
                                     class="icon_img media_icon_nav"> Mon espace
                                 personnel

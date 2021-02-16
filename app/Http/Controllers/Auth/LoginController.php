@@ -28,11 +28,7 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
-        if (auth()->user()->email == 'admin@admin.fr') {
-            return '/admin';
-        } else {
-            return '/compte';
-        }
+        return '/accueil_compte';
     }
 
     /**
