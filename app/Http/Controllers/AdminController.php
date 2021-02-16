@@ -34,6 +34,10 @@ class AdminController extends Controller
         return redirect('/');
     }
 
+    public function verify_admin_connection() {
+        return redirect('admin_dashboard');
+    }
+
     public function page_connection()
     {
        return view('admin.page_connection');
