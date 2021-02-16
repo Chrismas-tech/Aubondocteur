@@ -119,7 +119,7 @@ class CompteController extends Controller
 
             // Si l'utilisateur a déjà une review -> message d'erreur
         } else {
-            return redirect('/compte')->with('review_error', 'Vous avez déjà posté un commentaire sur ce médecin !');
+            return redirect('/accueil_compte')->with('review_error', 'Vous avez déjà posté un commentaire sur ce médecin !');
         }
     }
 

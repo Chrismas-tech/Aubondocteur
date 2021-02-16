@@ -22,13 +22,14 @@ class Admin
         /* Si les variables de session existent, on autorise à continuer la requête */
 
         $admin = AppAdmin::where('id', 1)->first();
+
         $admin_name = $admin->name;
         $admin_password = $admin->password;
 
         if ($request->session()->has('admin_name') == $admin_name && $request->session()->has('admin_password') == $admin_password) {
             return $next($request);
         } else {
- 
+
             /* Sinon :
 
             - Si l'une des requests existent, on essaye de se connecter, on se trouve donc sur la page de connection, on vérifie les inputs*/

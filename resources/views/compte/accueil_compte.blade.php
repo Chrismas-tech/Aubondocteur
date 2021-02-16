@@ -61,9 +61,9 @@
                                 <form action="{{ route('compte_destroy', ['user_id' => $user->id]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <p class="lobster card-header m-0 p_texte_1">Supprimer votre compte entraînera la
-                                        suppression de toutes vos
-                                        reviews</p>
+                                    <p class="lobster card-header m-0 p_texte_2">Supprimer votre compte entraînera la
+                                        suppression de tous vos
+                                        commentaires</p>
                                     <div class=" mt-3 mb-3 d-flex justify-content-center">
                                         <div>
                                             <button type="submit" class="card-link btn btn-danger btn-lg mr-3">Oui</button>
@@ -102,7 +102,6 @@
                 <!-- COLONNE DROITE-->
                 <!-- COLONNE DROITE-->
                 <!-- COLONNE DROITE-->
-
 
                 <div class="jumbotron m-0 p-5 opacity_1">
 
