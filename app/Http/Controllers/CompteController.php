@@ -21,6 +21,12 @@ class CompteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct() 
+    {
+        $this->middleware('auth');
+    }     
+
     public function accueil_compte()
     {
         $user = Auth::User();
@@ -115,7 +121,7 @@ class CompteController extends Controller
                 'nb_reviews_waiting' => DB::raw('nb_reviews_waiting+1'),
             ]);
 
-            return redirect('/compte')->with('message', 'Votre soumission a bien été envoyée aux modérateurs ! Elle est désormais en attente et sera validée ou rejetée dans les plus brefs délais !');
+            return redirect('/accueil_compte')->with('message', 'Votre soumission a bien été envoyée aux modérateurs ! Elle est désormais en attente et sera validée ou rejetée dans les plus brefs délais !');
 
             // Si l'utilisateur a déjà une review -> message d'erreur
         } else {
