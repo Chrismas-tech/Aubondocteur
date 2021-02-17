@@ -47,7 +47,7 @@ class MedecinController extends Controller
             ->where('address', 'LIKE', '%' . $city_uppercase . '%')
             ->where('validation_status_medecin', '=', 1)
             ->orderBy('medecin_last_name', 'asc')
-            ->paginate(5);
+            ->paginate(25);
 
 
         $nb_medecins = Medecin::where('speciality', '=', $result_speciality)
@@ -109,18 +109,11 @@ class MedecinController extends Controller
                 }
             }
 
-
             $count_medecins = count($nb_medecins);
             $specialities = Speciality::orderBy('speciality_name', 'asc')->get();
 
             return view('liste_medecins', compact('specialities', 'medecins', 'result_speciality', 'result_city', 'count_medecins'));
         }
-    }
-
-    public function bac_a_sable()
-    {
-        $medecins = Medecin::paginate(2);
-        return view('bac_a_sable', compact('medecins'));
     }
 
     public function back_to_liste_medecins($city, $speciality)
