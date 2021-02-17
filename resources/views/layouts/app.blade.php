@@ -10,7 +10,7 @@
     <!-- Fonts -->
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
@@ -43,68 +43,53 @@
 </head>
 
 <body>
-
     <nav class="bg_gradient_2 p-3 shadow-sm">
-
-        <div class="d-flex justify-content-between align-items-center">
-
-            <div class="d-sm-flex">
-                <div>
-                    <a class="btn btn-primary p_texte_1 text-white mr-4 media_button_welcome_page_nav"
-                        href="{{ url('/') }}">
-                        <img src="{{ asset('img/stethoscope.png') }}" alt="" class="icon_img media_icon_nav">
-                        aubonmedecin.com
-                    </a>
-                </div>
-
-                <div>
-                    <a class="btn btn-primary p_texte_1 text-white mr-4 media_button_welcome_page_nav"
-                        href="{{ url('contact_page') }}">
-                        <img src="{{ asset('img/email.png') }}" alt="" class="icon_img media_icon_nav"> Contactez-nous
-                    </a>
-                </div>
+        <div class="d-sm-flex justify-content-between align-items-center">
+            <div class="mq_flex">
+                <a class="mq_margin_bottom btn btn-primary p_texte_1 text-white mr-4 media_button_welcome_page_nav"
+                    href="{{ url('/') }}">
+                    <img src="{{ asset('img/stethoscope.png') }}" alt="" class="icon_img media_icon_nav">
+                    aubonmedecin.com
+                </a>
+                <a class="btn btn-primary p_texte_1 text-white mr-4 media_button_welcome_page_nav"
+                    href="{{ url('contact_page') }}">
+                    <img src="{{ asset('img/email.png') }}" alt="" class="icon_img media_icon_nav"> Contactez-nous
+                </a>
             </div>
 
             @guest
-                <div class="d-flex justify-content-around align-items-center">
-                    <div class="d-sm-flex">
-                        <div class="btn_accueil">
-                            <a class="btn btn-primary p_texte_1 text-white mr-4 media_button_welcome_page_nav"
-                                href="{{ route('login') }}"><img src="{{ asset('img/login.png') }}" alt=""
-                                    class="icon_img media_icon_nav"> Se connecter</a>
-                        </div>
-
-                        <div class="btn_accueil">
-                            <a class="btn btn-primary p_texte_1 text-white media_button_welcome_page_nav"
-                                href="{{ route('login') }}"><img src="{{ asset('img/sign-in.png') }}" alt=""
-                                    class="icon_img media_icon_nav"> S'enregistrer</a>
-                        </div>
+                <div class="d-sm-flex justify-content-around align-items-center">
+                    <div class="mq_flex">
+                        <a class="mq_margin_bottom btn btn-primary p_texte_1 text-white mr-4 media_button_welcome_page_nav"
+                            href="{{ route('login') }}"><img src="{{ asset('img/login.png') }}" alt=""
+                                class="icon_img media_icon_nav"> Se connecter</a>
+                        <a class="btn btn-primary p_texte_1 text-white media_button_welcome_page_nav"
+                            href="{{ route('login') }}"><img src="{{ asset('img/sign-in.png') }}" alt=""
+                                class="icon_img media_icon_nav"> S'enregistrer</a>
                     </div>
                 @else
-                    <div class="d-flex">
-                        <div>
-                            <a class="btn btn-primary p_texte_1 text-white mr-4 media_button_welcome_page_nav"
+                    <div class="d-sm-flex justify-content-around align-items-center">
+                        <div class="mq_flex_2 d-flex">
+                            <a class="mq_margin_bottom btn btn-primary p_texte_1 text-white mr-4 media_button_welcome_page_nav"
                                 href="{{ route('accueil_compte') }}">
                                 <img src="{{ asset('img/espace-personnel.png') }}" alt=""
                                     class="icon_img media_icon_nav"> Mon espace
                                 personnel
                             </a>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit"
+                                    class="btn_logout_width btn btn-primary p_texte_1 text-white media_button_welcome_page_nav"
+                                    href="{{ route('logout') }}">
+                                    <img src="{{ asset('img/logout.jpg') }}" class="icon_img media_icon_nav">
+                                    Déconnexion
+                                </button>
+                            </form>
                         </div>
-                        <div>
-                            <a class="btn btn-primary p_texte_1 text-white mr-4 media_button_welcome_page_nav"
-                                href="{{ route('logout') }}"
-                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                <img src="{{ asset('img/logout.jpg') }}" alt="" class="icon_img media_icon_nav">
-                                Déconnexion
-                            </a>
-                        </div>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                        <div>
-                        @endguest
                     </div>
-                </div>
+                @endguest
+            </div>
+        </div>
     </nav>
 
     <div>

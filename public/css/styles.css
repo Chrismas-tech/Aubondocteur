@@ -713,7 +713,7 @@ table td {
     }
 }
 
-@media screen and (max-width: 1075px) {
+@media screen and (max-width: 1110px) {
     /*PAGE ACCUEIL*/
     /*PAGE ACCUEIL*/
     .media_title_welcome_page {
@@ -791,11 +791,11 @@ table td {
         padding: 2px;
     }
     .media_button_welcome_page_nav {
-        font-size: 18px;
+        font-size: 14px;
     }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 920px) {
     /*PAGE ACCUEIL*/
     /*PAGE ACCUEIL*/
     .media_button_end_welcome_page {
@@ -813,7 +813,7 @@ table td {
     }
 }
 
-@media screen and (max-width: 856px) {
+@media screen and (max-width: 900px) {
     /*LISTE MEDECINS*/
     /*LISTE MEDECINS*/
     .media_name_medecin {
@@ -854,6 +854,23 @@ table td {
 @media screen and (max-width: 767px) {
     /*PAGE ACCUEIL*/
     /*PAGE ACCUEIL*/
+    .mq_flex {
+        display: flex !important;
+        flex-direction: column;
+        margin-bottom: 10px;
+        justify-content: space-between;
+    }
+    .mq_flex_2 {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .mq_margin_bottom {
+        margin-bottom: 10px;
+    }
+    .mq_nav_flex {
+        display: block !important;
+    }
     .media_button_end_welcome_page {
         font-size: 15px;
         padding: 10px;
@@ -938,24 +955,25 @@ table td {
     }
 }
 
-@media screen and (max-width: 616px) {
-    /*PAGE ACCUEIL*/
-    /*PAGE ACCUEIL*/
-    .media_icon_nav {
-        display: none;
+@media screen and (max-width: 699px) {
+    .mq_flex_2 {
+        display: flex !important;
+        flex-direction: column;
+        margin-bottom: 10px;
+        justify-content: space-between;
+    }
+    .btn_logout_width {
+        width: 100%;
+    }
+    .mq_margin_bottom {
+        margin-bottom: 10px;
     }
     .media_button_welcome_page_nav {
-        font-size: 12px;
+        margin-right: 0;
     }
-    .media_title_welcome_page {
-        font-size: 23px;
-    }
-    .media_info_welcome_page {
-        font-size: 15px;
-    }
-    .media_accueil_error_2 {
-        font-size: 12px;
-    }
+}
+
+@media screen and (max-width: 616px) {
     /*LISTE MEDECINS*/
     /*LISTE MEDECINS*/
     .media_give_review_medecin {
@@ -964,10 +982,18 @@ table td {
     .media_see_review_medecin {
         font-size: 12px;
     }
+}
+
+@media screen and (max-width: 576px) {
+    /*PAGE ACCUEIL*/
+    /*PAGE ACCUEIL*/
     .media_button_welcome_page_nav {
-        font-size: 14px;
-        padding: 8px;
-        margin: 10px;
+        margin-right: 0px !important;
+        font-size: 20px;
+    }
+    .media_icon_nav {
+        width: 30px;
+        height: 30px;
     }
 }
 

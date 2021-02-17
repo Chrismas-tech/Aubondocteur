@@ -36,7 +36,7 @@
 
             <div class=" d-lg-flex justify-content-between">
                 
-                <div class="col-sm-12 col-lg-4 p-3 card mr-4 opacity_1 col-4 mb-5">
+                <div class="col-12 col-lg-4 p-3 card mr-4 opacity_1 col-4 mb-5">
                     <div>
 
                         <div>
