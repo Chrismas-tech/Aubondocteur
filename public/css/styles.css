@@ -974,6 +974,18 @@ table td {
 
 /* ADMIN CONNECTION */
 
+
+/* ADMIN CONNECTION */
+
+
+/* ADMIN CONNECTION */
+
+
+/* ADMIN CONNECTION */
+
+
+/* ADMIN CONNECTION */
+
 .my_min_height_admin_connection {
     height: calc(100vh - 72px);
 }
@@ -992,4 +1004,152 @@ table td {
 
 .form-rounded {
     border-radius: 0.8rem;
+}
+
+
+/* MEDIA QUERIES ACCUEIL COMPTE */
+
+
+/* MEDIA QUERIES ACCUEIL COMPTE */
+
+
+/* MEDIA QUERIES ACCUEIL COMPTE */
+
+
+/* MEDIA QUERIES ACCUEIL COMPTE */
+
+.mq_width {
+    width: 90%;
+}
+
+.mq_txt_new_research {
+    font-size: 23px;
+}
+
+.mq_txt_light {
+    font-size: 29px;
+}
+
+.mq_txt_bold {
+    font-size: 29px;
+}
+
+.mq_comment_txt {
+    font-size: 15px;
+}
+
+.mq_title_col_left {
+    font-size: 30px;
+}
+
+.mq_title_first_title {
+    font-size: 38px;
+}
+
+.mq_btn_modify,
+.mq_btn_delete {
+    font-size: 18px;
+}
+
+.opacity_2 {
+    opacity: 0.83;
+}
+
+@media screen and (max-width: 1584px) {
+    .mq_txt_new_research {
+        font-size: 19px;
+    }
+    .mq_txt_light {
+        font-size: 25px;
+    }
+    .mq_txt_bold {
+        font-size: 23px;
+    }
+    .mq_comment_txt {
+        font-size: 13px;
+        margin-bottom: 0;
+        padding: 0;
+    }
+    .mq_pad_col_left {
+        padding: 30px !important;
+    }
+}
+
+@media screen and (max-width: 1357px) {
+    .mq_title_col_left {
+        font-size: 25px;
+    }
+    .mq_txt_new_research {
+        font-size: 16px;
+    }
+    .mq_btn_modify,
+    .mq_btn_delete {
+        font-size: 14px;
+    }
+    .mq_txt_light {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 1212px) {
+    .mq_txt_light {
+        font-size: 20px;
+    }
+    .mq_title_first_title {
+        font-size: 30px;
+    }
+    .mq_pad_col_left {
+        padding: 15px !important;
+    }
+    .mq_txt_new_research {
+        font-size: 16px;
+    }
+    .mq_txt_light {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 1166px) {
+    .mq_comment_txt {
+        font-size: 13px;
+    }
+    .mq_width {
+        width: 97%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .mq_flex_block {
+        display: block !important;
+    }
+    .mq_btn_modify,
+    .mq_btn_delete {
+        font-size: 16px;
+    }
+    .mq_title_col_left {
+        font-size: 30px;
+    }
+    .mq_comment_txt {
+        font-size: 18px;
+        margin-bottom: 0;
+        padding: 0;
+    }
+    .mq_txt_light {
+        font-size: 22px;
+    }
+    .mq_pad_col_left {
+        padding: 30px !important;
+    }
+    .mq_txt_new_research {
+        font-size: 20px;
+    }
+    .mq_width {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .mq_txt_new_research {
+        font-size: 17px;
+    }
 }
