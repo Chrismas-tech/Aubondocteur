@@ -4,13 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>aubonmedecin</title>
 
     <!-- Fonts -->
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
@@ -26,8 +24,6 @@
 
     <!-- CSS STYLES-->
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-
-
 </head>
 
 <body>
@@ -40,19 +36,14 @@
             <hr>
 
             <div style="margin:auto;">
-
-                <form method="POST" action="{{ route('verify_admin_connection') }}" class="mt-3">
-
+                <form method="POST" action="{{ route('connexion_verified') }}" class="mt-3">
                     @csrf
-
                     <div>
                         <label for="name" class="col-md-4 col-form-label text-md-right"></label>
-
                         <div class=" input-group input-group-lg">
                             <input id="name" type="text" class="input_text_lg form-rounded" name="name" autocomplete="name" autofocus
                                 placeholder="Name...">
                         </div>
-
                     </div>
 
                     <div>
@@ -87,6 +78,7 @@
                             </button>
                         </div>
                     </div>
+                    <input hidden  name="connexion" value="1">
                 </form>
             </div>
         </div>

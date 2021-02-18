@@ -89,7 +89,7 @@ Route::get('/gestionnaire', 'AdminController@gestionnaire')->name('gestionnaire'
 Route::get('/admin_logout', 'AdminController@admin_logout')->name('admin_logout');
 
 /* Cette fausse route permet juste d'envoyer le mot de passe et le nom au middleware pour vérifier la connexion*/
-Route::post('/verify_admin_connection', 'AdminController@verify_admin_connection')->name('verify_admin_connection');
+Route::post('/connexion_verified', 'AdminController@connexion_verified')->name('connexion_verified');
 
 //GESTIONNAIRE -- AFFICHER TOUS LES MEDECINS
 

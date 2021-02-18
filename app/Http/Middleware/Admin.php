@@ -15,48 +15,41 @@ class Admin
      * @return mixed
      */
 
-
-
     public function handle($request, Closure $next)
     {
-        /* Si les variables de session existent, on autorise à continuer la requête */
-
-        $admin = AppAdmin::where('id', 1)->first();
-
-        $admin_name = $admin->name;
-        $admin_password = $admin->password;
-
-        if ($request->session()->has('admin_name') == $admin_name && $request->session()->has('admin_password') == $admin_password) {
+        /* LES VARIABLES DE SESSION EXISTENT -> PAGE SUIVANTE */
+        if ($request->session()->has('admin_name') && $request->session()->has('admin_password')) {
             return $next($request);
         } else {
 
-            /* Sinon :
-
-            - Si l'une des requests existent, on essaye de se connecter, on se trouve donc sur la page de connection, on vérifie les inputs*/
-
-            if ($request->name || $request->password) {
+            /* SINON ON SE TROUVE SUR LA PAGE CONNECTION, $request->connexion existe */
+            if ($request->connexion == 1) {
 
                 $request->validate([
                     'name' => 'required',
                     'password' => 'required',
                 ]);
 
-                /* Si les inputs sont correct, on renvoie vers le dashboard_admin */
+                $admin = AppAdmin::where('id', 1)->first();
+
+                $admin_name = $admin->name;
+                $admin_password = $admin->password;
+
+                /* SI LE PASSWORD ET LE NAME SONT CORRECTS -> Dashboard ADMIN */
                 if ($request->name ==  $admin_name && $request->password ==  $admin_password) {
-                    //dd('YOUHOPPOPO');
+
                     $request->session()->push('admin_name', $admin_name);
                     $request->session()->push('admin_password', $admin_password);
 
                     return redirect('admin_dashboard');
                 } else {
 
-
-                    /* On rafraîchit la page avec un message d'erreur */
+                    /* SINON ERREUR SUR LA MEME PAGE */
                     return redirect()->back()->with('error', 'Le nom ou le mot de passe est incorrect !');
                 }
             } else {
-                /* les inputs n'existent pas, on ne se trouve pas sur la page de connexion admin -> message d'erreur */
-
+                
+                /* SINON ON NE DONNE PAS D'ACCES */
                 return response()->view('page_error');
             }
         }
