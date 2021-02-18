@@ -1179,3 +1179,51 @@ table td {
         font-size: 17px;
     }
 }
+
+
+/* MEDIA QUERIES LOGIN - REGISTER */
+
+.my_min_height_login {
+    height: calc(100vh - 72px);
+}
+
+.mq_h1_font_size h1 {
+    font-size: 3.8rem;
+}
+
+.btn_login_register_font_size {
+    font-size: 1.8rem;
+}
+
+@media screen and (max-width: 1782px) {
+    .mq_h1_font_size h1 {
+        font-size: 3rem;
+    }
+    .btn_login_register_font_size {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 1452px) {
+    .mq_h1_font_size h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 1230px) {
+    .mq_h1_font_size h1 {
+        font-size: 2.1rem;
+    }
+}
+
+@media screen and (max-width: 1020px) {
+    .mq_h1_font_size h1 {
+        font-size: 1.9rem;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .my_min_height_login {
+        height: 100%;
+    }
+}

@@ -2,10 +2,10 @@
 
 @section('content')
 
-    <div class="jumbotron text-primary bg_photo_3 mb-0 d-flex flex-wrap">
-        <div class="bg-white mt-3 p-4 jumb_1_vignette" style="width:50%;margin:auto">
+    <div class="my_min_height_login mq_h1_font_size jumbotron text-primary bg_photo_3 mb-0 d-lg-flex justify-content-around">
+        <div class="bg-white mt-xl-3 mb-5 mb-lg-0 p-1 mb-xl-0 rounded col-12 col-lg-6">
 
-            <div class="text-center mt-3">
+            <div class="text-center mt-2">
                 <h1 class="display-4 lobster">Vous n'avez pas encore de compte ?</h1>
             </div>
 
@@ -76,8 +76,8 @@
                         </div>
                     </div>
                     <div>
-                        <div class="text-center mt-5">
-                            <button type="submit" class="btn btn-primary btn-lg p_texte_1 text-white">
+                        <div class="text-center mt-4 mb-4 mt-lg-5 mb-lg-5">
+                            <button type="submit" class="btn_login_register_font_size btn btn-primary btn-lg p_texte_1 text-white">
                                 S'enregistrer
                             </button>
                         </div>
@@ -87,9 +87,9 @@
         </div>
 
 
-        <div class="bg-white mt-3 p-3 jumb_1_vignette" style="width:40%;margin:auto">
+        <div class="bg-white mt-xl-3 p-1 rounded col-12 col-lg-5">
 
-            <div class="text-center mt-3">
+            <div class="text-center mt-2">
                 <h1 class="display-4 lobster">Déjà membre ?</h1>
             </div>
 
@@ -139,22 +139,22 @@
 
                     <div class="text-center">
 
-                        <div class="mt-3">
+                        <div class="mt-10">
                             <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                             <label class="text-dark" for="remember">
-                                <h4> {{ __('Remember me') }}</h4>
+                                <h4>Remember me</h4>
                             </label>
                         </div>
 
-                        <div class="mb-5">
-                            <button type="submit" class="btn btn-primary btn-lg p_texte_1 text-white">
+                        <div class="mt-4 mb-4 mt-lg-5 mb-lg-5">
+                            <button type="submit" class="btn_login_register_font_size btn btn-primary btn-lg p_texte_1 text-white">
                                 Connexion
                             </button>
 
                             @if (Route::has('password.request'))
                                 <a class="btn btn-link btn-lg" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
+                                   Forgot your password
                                 </a>
                             @endif
                         </div>
