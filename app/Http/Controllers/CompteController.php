@@ -136,8 +136,9 @@ class CompteController extends Controller
             'medecin_last_name' => 'required',
             'speciality' => 'required',
             'address' => 'required',
+            'city' => 'required',
+            'zip_code' => 'required',
             'phone' => 'required',
-            'email' => 'required',
             'gps_lat' => 'required',
             'gps_lng' => 'required',
             'validation_status_medecin' => 'required',
@@ -149,7 +150,7 @@ class CompteController extends Controller
         $datas = $request->all();
         $datas["medecin_first_name"] = strtoupper($request->medecin_first_name);
         $datas["medecin_last_name"] = strtoupper($request->medecin_last_name);
-        $datas["address"] = strtoupper($request->address);
+        $datas["city"] = strtoupper($request->city);
 
         Medecin::create($datas);
 

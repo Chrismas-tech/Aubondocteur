@@ -98,8 +98,8 @@
 
     <div>
         <footer class="text-center bg-primary text-white p-4">
-            <h3 class="font-italic m-0 p-0 p_texte_2 text-white media_footer_font_size">Copyright
-                &copy; 2020 aubonmedecin.ml, all Rights Reserved</h3>
+            <h3 class="font-italic m-0 p-0 p_texte_2 text-white media_footer_font_size">All Rights Reserved Copyright
+                &copy; 2020 aubonmedecin.ml</h3>
         </footer>
     </div>
 
