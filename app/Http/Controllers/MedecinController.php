@@ -27,31 +27,31 @@ class MedecinController extends Controller
     {
 
         /*VALIDATION FORMULAIRE*/
-        /*VALIDATION FORMULAIRE*/
-        /*VALIDATION FORMULAIRE*/
 
         $request->validate([
             'select_accueil' => 'required|',
             'input_search_accueil' => 'required|',
         ]);
 
-        /*Nom de la ville en majusucule car l'adresse BDD est en Uppercase*/
+        /* NOM DE LA VILLE EN MAJUSCULE POUR COMPARER AVEC COLONNE CITY DE LA BDD */
         $city_uppercase = strtoupper($request->input_search_accueil);
 
         $result_speciality = $request->select_accueil;
         $result_city = $request->input_search_accueil;
 
+        /* LE NOM DE LA VILLE AVEC UNE SEULE MAJUSCULE POUR RENVOYER A LA VUE */
         $result_city = ucfirst($result_city);
 
+        /* ON DEMANDE TOUS LES MEDECINS VALIDES PAR L'ADMIN CORRESPONDANT A LA SPECIALITE DE L'UTILISATEUR ET A LA VILLE CHOISIE */
+
         $medecins = Medecin::where('speciality', '=', $result_speciality)
-            ->where('address', 'LIKE', '%' . $city_uppercase . '%')
+            ->where('city', 'LIKE', $city_uppercase . '%')
             ->where('validation_status_medecin', '=', 1)
             ->orderBy('medecin_last_name', 'asc')
             ->paginate(25);
 
-
         $nb_medecins = Medecin::where('speciality', '=', $result_speciality)
-            ->where('address', 'LIKE', '%' . $city_uppercase . '%')
+            ->where('city', 'LIKE', $city_uppercase . '%')
             ->where('validation_status_medecin', '=', 1)->get();
 
 
@@ -74,7 +74,7 @@ class MedecinController extends Controller
                     $medecin->save;
                 }
 
-                /*Si la latitude et la longitude n'existe pas en BDD, on les enregistre */
+                /*SI LA LATITUDE ET LA LONGITUDE N'EXISTENT PAS SUR LA BDD, ON lES ENREGISTRE */
 
                 if ($medecin->gps_lat == 0.0000000000 || $medecin->gps_lng == 0.0000000000) {
 
@@ -153,5 +153,63 @@ class MedecinController extends Controller
 
             return view('liste_medecins', compact('specialities', 'medecins', 'result_speciality', 'result_city', 'count_medecins'));
         }
+    }
+
+    public function bac()
+    {
+
+        $medecins = Medecin::whereNull('zip_code')->get();
+
+        /*API GEOGOUV - find  gps_lat and gps_lng of each address */
+        foreach ($medecins as $medecin) {
+
+            if ($medecin->email == "\r") {
+                $medecin->email = "";
+                $medecin->save;
+            }
+
+            $address_with_spaces = $medecin->address;
+
+            /*On remplace tous les espaces par des +*/
+            $address_without_spaces = strtr($address_with_spaces, ' ', "+");
+            $url = "https://api-adresse.data.gouv.fr/search/?q=" . $address_without_spaces;
+
+            /*Create cURL resource*/
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_HTTPGET, true);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $response_json = curl_exec($ch);
+
+            /*Close cURL resource*/
+            curl_close($ch);
+
+            $response = json_decode($response_json, true);
+
+            if (!(empty($response["features"]))) {
+
+                if (!$medecin->zip_code) {
+
+                    $zip_code = ($response["features"][0]["properties"]["postcode"]);
+
+                    
+                    $city = strtoupper($response["features"][0]["properties"]["city"]);
+
+                    $new_address = ($response["features"][0]["properties"]["name"]);
+                    $address = $new_address . ' ' . $city;
+
+                    $medecin->city = $city;
+                    $medecin->address = $address;
+                    $medecin->zip_code = $zip_code;
+
+                    //Latitude
+                    $medecin->gps_lat = $response["features"][0]["geometry"]["coordinates"][1];
+                    //Longitude
+                    $medecin->gps_lng = $response["features"][0]["geometry"]["coordinates"][0];
+
+                    $medecin->save();
+                }
+            }
+        }
+        return "FINISH";
     }
 }

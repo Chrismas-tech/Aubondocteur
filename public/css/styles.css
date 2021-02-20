@@ -293,7 +293,7 @@ table td {
     width: 100%;
 }
 
-.a_result {
+.p_result {
     font-size: 20px;
     cursor: pointer;
     text-decoration: none;
@@ -301,7 +301,7 @@ table td {
     color: rgb(42, 148, 240);
 }
 
-.a_result:hover {
+.p_result:hover {
     background-color: #0a93e2;
     color: white;
     padding: 5px;

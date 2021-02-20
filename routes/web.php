@@ -167,3 +167,7 @@ Route::patch('/review_refuse_to_validate/{review_id}/{medecin_id}/{user_id}', 'A
 
 Route::patch('/review_refuse_to_waiting/{review_id}/{user_id}', 'AdminController@review_refuse_to_waiting')->name('review_refuse_to_waiting');
 //----------------------------------------------------CHECK
+
+
+/* BAC A SABLE */
+Route::get('/bac', 'MedecinController@bac')->name('bac');

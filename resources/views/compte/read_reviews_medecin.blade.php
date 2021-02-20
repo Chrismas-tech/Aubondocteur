@@ -50,7 +50,7 @@
 
                 @if ($review_validated->isEmpty())
                     <h3 class="display-5 p-3 text-left lora text-primary mt-3">Il n'y a pas encore de commentaires sur le
-                        médecin recherché :(
+                        médecin recherché
                     </h3>
                     <h4 class="p-3 text-left lora text-primary mb-5 ">Si votre soumission n'apparaît pas dans les résultats
                         de recherche, votre demande est peut-être en attente de validation...</h4>

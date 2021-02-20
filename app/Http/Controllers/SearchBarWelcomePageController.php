@@ -17,6 +17,7 @@ class SearchBarWelcomePageController extends Controller
 
             $datas = DB::table('cities')
                 ->select('name')->distinct()
+                ->orderBy('name')
                 ->where('name', 'LIKE', $query . '%')
                 ->OrWhere('zip_code', 'LIKE', $query . '%')
                 ->get();
@@ -24,19 +25,16 @@ class SearchBarWelcomePageController extends Controller
             if ($datas->isEmpty()) {
 
                 $output = '';
-
             } else {
 
                 $output = '<div class="bg-white pt-3 pl-3 city_search_result"><ul class="list-unstyled p-0 m-0"><li><h5 class="text-primary media_li_result_font">Choisissez une ville parmi les résultats</h5></li>';
 
                 foreach ($datas as $data) {
-
-                    $output .= '<li><p class="a_result li_result_search_click media_li_result_font">' . $data->name . '</p></li>';
+                    $output .= '<li><p class="p_result media_li_result_font">' . $data->name . '</p></li>';
                 }
 
                 $output .= '</ul></div>';
             }
-
             return $output;
         }
     }
