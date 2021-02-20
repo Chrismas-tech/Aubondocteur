@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="d-flex justify-content-center pt-5 pb-5 banner_list_medecins">
-        <div class="p-3 jumb_1_vignette bg-white opacity_1">
+        <div class="p-3 jumb_1_vignette bg-white opacity_1 mq_width_search_bar">
             <div class="text-center">
                 <h1 class="display-6 lobster text-primary mb-4 mt-3 media_title_welcome_page">Nouvelle recherche</h1>
             </div>
@@ -41,7 +41,7 @@
                 <div class="text-primary m-0 p-4 rounded">
                     <div class="d-md-flex justify-content-center opacity_1">
 
-                        <div class="card border-black p-0 window_shadow mr-md-5 media_medecin_card mb-sm-5">
+                        <div class="card border-black p-0 window_shadow mr-md-5 media_medecin_card mb-3">
                             <div class="card-header text-white bg-success">
                                 <h3 class="m-0 p-0 lora text-white media_title_card">{{ $result_speciality }}</h3>
                             </div>
@@ -167,7 +167,7 @@
                         <!-- LEAFLET -->
 
                         <div class="media_leaflet_card mt-3 mt-sm-0 ">
-                            <div class="card p-0 window_shadow">
+                            <div class="card p-0 window_shadow ">
                                 <div class="card-header text-white lora text-center bg-primary">
                                     <h3 class="m-0 p-0 media_title_card">Mappy</h3>
                                 </div>

@@ -492,6 +492,10 @@ table td {
 
 /*MEDIA QUERIES*/
 
+.media_nb_review_medecin {
+    font-size: 26px;
+}
+
 @media screen and (min-width: 1875px) {
     .media_window_white_width {
         width: 60%;
@@ -537,6 +541,9 @@ table td {
     .media_icon_info_medecin {
         width: 20px;
         height: 20px;
+    }
+    .media_nb_review_medecin {
+        font-size: 21px;
     }
     /*LOGIN - REGISTER*/
 }
@@ -595,9 +602,6 @@ table td {
     .media_see_review_medecin {
         font-size: 15px;
     }
-    .media_nb_review_medecin {
-        font-size: 22px;
-    }
     .map {
         height: 445px;
         width: 450px;
@@ -653,11 +657,8 @@ table td {
     .media_phone_medecin {
         font-size: 18px;
     }
-    .media_give_review_medecin {
-        font-size: 13px;
-    }
-    .media_see_review_medecin {
-        font-size: 13px;
+    .mq_width_search_bar {
+        width: 60%;
     }
     .map {
         height: 428px;
@@ -702,10 +703,10 @@ table td {
         font-size: 18px;
     }
     .media_give_review_medecin {
-        font-size: 11px;
+        font-size: 15px;
     }
     .media_see_review_medecin {
-        font-size: 11px;
+        font-size: 15px;
     }
     .map {
         height: 410px;
@@ -758,6 +759,9 @@ table td {
     .map {
         height: 410px;
         width: 300px;
+    }
+    .mq_width_search_bar {
+        width: 70%;
     }
 }
 
@@ -826,13 +830,13 @@ table td {
         font-size: 15px;
     }
     .media_nb_review_medecin {
-        font-size: 14px;
+        font-size: 17px;
     }
     .media_give_review_medecin {
-        font-size: 10px;
+        font-size: 14px;
     }
     .media_see_review_medecin {
-        font-size: 10px;
+        font-size: 14px;
     }
     .map {
         height: 313px;
@@ -940,6 +944,9 @@ table td {
     .media_see_review_medecin {
         font-size: 16px;
     }
+    .media_leaflet_card {
+        margin-bottom: 80px !important;
+    }
     .media_medecin_card {
         width: 99%;
         margin: auto;
@@ -952,6 +959,9 @@ table td {
     }
     .media_button_welcome_page_nav {
         font-size: 15px;
+    }
+    .mq_width_search_bar {
+        width: 80%;
     }
 }
 
@@ -981,6 +991,9 @@ table td {
     }
     .media_see_review_medecin {
         font-size: 12px;
+    }
+    .mq_width_search_bar {
+        width: 95%;
     }
 }
 
