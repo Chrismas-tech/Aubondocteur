@@ -26,7 +26,7 @@
 
                         <div class="input-group-lg">
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                                name="name" value="{{ old('name') }}" required autocomplete="name" autofocus
+                                name="name" value="{{ old('name') }}" autocomplete="name" autofocus
                                 placeholder="Votre Nom">
 
                             @error('name')
@@ -41,9 +41,8 @@
                         <label for="email" class="col-md-4 col-form-label text-md-right"></label>
 
                         <div class="input-group-lg">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}" required autocomplete="email"
-                                placeholder="Votre Email">
+                            <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
+                                value="{{ old('email') }}" autocomplete="email" placeholder="Votre Email">
 
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -53,30 +52,42 @@
                         </div>
                     </div>
 
-                    <div class="">
+                    <div>
                         <label for="password" class="col-md-4 col-form-label text-md-right"></label>
 
                         <div class="input-group-lg d-flex">
-                            <input id="password" type="password"
-                                class="input_rounded_right_0 form-control  @error('password') is-invalid @enderror" name="password"
-                                required autocomplete="new-password" placeholder="Votre mot de passe">
-                            <button id="reveal_password_register" class="border border-secondary "><img src="{{ asset('img/eye.png') }}" alt="" class="eye_icon"></button>
+                            <input type="password"
+                                class="password_register_reveal input_rounded_right_0 form-control  @error('password') is-invalid @enderror"
+                                name="password" autocomplete="new-password" placeholder="Votre mot de passe">
 
+                            <button type="button" class="reveal_password_register border border-secondary ">
+                                <img src="{{ asset('img/eye.png') }}" alt="" class="eye_icon eye_open_register">
+                                <img class="eye_off_register eye_icon d-none" src="{{ asset('img/cross_eye.png') }}"
+                                    alt="">
+                            </button>
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
-                        @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
                     </div>
-                    <div class="">
+                    <div>
                         <label for="password-confirm" class="col-md-4 col-form-label text-md-right"></label>
 
                         <div class="input-group-lg d-flex">
-                            <input id="password-confirm" type="password" class="input_rounded_right_0 form-control" name="password_confirmation"
-                                required autocomplete="new-password" placeholder="Confirmation du mot de passe">
-                                <button id="reveal_password_confirmation_register" class="border border-secondary "><img src="{{ asset('img/eye.png') }}" alt="" class="eye_icon"></button>
+                            <input id="password-confirm" type="password"
+                                class="input_rounded_right_0 form-control password_confirmation_register_reveal"
+                                name="password_confirmation" autocomplete="new-password"
+                                placeholder="Confirmation du mot de passe">
+
+                            <button type="button" class="reveal_password_register border border-secondary ">
+                                <img src="{{ asset('img/eye.png') }}" alt="" class="eye_icon eye_open_register">
+                                <img class="eye_off_register eye_icon d-none" src="{{ asset('img/cross_eye.png') }}"
+                                    alt="" class="eye_icon d-none">
+                            </button>
+
                         </div>
                     </div>
                     <div>
@@ -105,7 +116,6 @@
             </div>
 
             <div style="width:80%;margin:auto;">
-
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
 
@@ -113,10 +123,9 @@
                         <label for="email" class="text-white col-form-label"></label>
 
                         <div class="input-group-lg">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
-                                placeholder="Votre Email">
-                                
+                            <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
+                                value="{{ old('email') }}" autocomplete="email" autofocus placeholder="Votre Email">
+
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -129,10 +138,14 @@
                         <label for="password" class="col-form-label"></label>
 
                         <div class="input-group-lg d-flex">
-                            <input id="password" type="password"
-                                class="input_rounded_right_0 form-control @error('password') is-invalid @enderror" name="password" required
-                                autocomplete="current-password" placeholder="Votre mot de passe">
-                                <button id="reveal_password_login" class="border border-secondary"><img src="{{ asset('img/eye.png') }}" alt="" class="eye_icon"></button>
+                            <input type="password"
+                                class="password_login_reveal input_rounded_right_0 form-control @error('password') is-invalid @enderror"
+                                name="password" autocomplete="current-password" placeholder="Votre mot de passe">
+
+                            <button type="button" class="reveal_password_login border border-secondary">
+                                <img src="{{ asset('img/eye.png') }}" alt="" class="eye_icon eye_open_login">
+                                <img src="{{ asset('img/cross_eye.png') }}" alt="" class="eye_icon eye_off_login d-none">
+                            </button>
 
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -165,9 +178,55 @@
                                 </a>
                             @endif
                         </div>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 
+
+    <script>
+        $('document').ready(function() {
+
+            /* REVELER LE PASSWORD REGISTER*/
+            $('.reveal_password_register').click(function() {
+
+                /* SI L'OEIL EST NORMAL -> ON CHANGE IMAGE + ON REVELE LE PASSWORD */
+                if (!$('.eye_open_register').hasClass('d-none')) {
+
+                    $('.eye_open_register').addClass('d-none');
+                    $('.eye_off_register').removeClass('d-none');
+                    $('.password_register_reveal').attr('type', 'text');
+                    $('.password_confirmation_register_reveal').attr('type', 'text');
+
+                } else {
+
+                    $('.eye_off_register').addClass('d-none');
+                    $('.eye_open_register').removeClass('d-none');
+                    $('.password_register_reveal').attr('type', 'password');
+                    $('.password_confirmation_register_reveal').attr('type', 'password');
+
+                }
+            });
+
+            $('.reveal_password_login').click(function() {
+                /* REVELER LE PASSWORD LOGIN*/
+                if (!$('.eye_open_login').hasClass('d-none')) {
+              
+                    $('.eye_open_login').addClass('d-none');
+                    $('.eye_off_login').removeClass('d-none');
+                    $('.password_login_reveal').attr('type', 'text');
+
+                } else {
+
+                    $('.eye_off_login').addClass('d-none');
+                    $('.eye_open_login').removeClass('d-none');
+                    $('.password_login_reveal').attr('type', 'password');
+
+                }
+            });
+
+        });
+
+    </script>
 @endsection
