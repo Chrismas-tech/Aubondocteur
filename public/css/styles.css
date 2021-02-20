@@ -1196,6 +1196,17 @@ table td {
 
 /* MEDIA QUERIES LOGIN - REGISTER */
 
+.input_rounded_right_0 {
+    border-top-right-radius: 0% !important;
+    border-bottom-right-radius: 0% !important;
+    border-right: none;
+}
+
+.eye_icon {
+    width: 30px;
+    height: auto;
+}
+
 .my_min_height_login {
     height: calc(100vh - 72px);
 }
