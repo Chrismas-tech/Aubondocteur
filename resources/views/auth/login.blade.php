@@ -4,8 +4,8 @@
 
     <div
         class="my_min_height_login mq_h1_font_size jumbotron text-primary bg_photo_3 mb-0 d-lg-flex justify-content-around">
-        <div class="bg-white mt-xl-3 mb-5 mb-lg-0 p-1 mb-xl-0 rounded col-12 col-lg-6">
 
+        <div class="bg-white mt-xl-3 mb-5 mb-lg-0 p-1 mb-xl-0 rounded col-12 col-lg-6">
             <div class="text-center mt-2">
                 <h1 class="display-4 lobster">Vous n'avez pas encore de compte ?</h1>
             </div>
@@ -65,13 +65,12 @@
                                 <img class="eye_off_register eye_icon d-none" src="{{ asset('img/cross_eye.png') }}"
                                     alt="">
                             </button>
-                            @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
                         </div>
-
+                        @error('password')
+                            <div class="text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </div>
+                        @enderror
                     </div>
                     <div>
                         <label for="password-confirm" class="col-md-4 col-form-label text-md-right"></label>
@@ -87,11 +86,17 @@
                                 <img class="eye_off_register eye_icon d-none" src="{{ asset('img/cross_eye.png') }}"
                                     alt="" class="eye_icon d-none">
                             </button>
-
                         </div>
+                        @error('password')
+                            <div class="text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </div>
+                        @enderror
+
+
                     </div>
                     <div>
-                        <div class="text-center mt-4 mb-4 mt-lg-5 mb-lg-5">
+                        <div class="text-center mt-4 mb-4  mt-lg-5 mb-lg-5">
                             <button type="submit"
                                 class="btn_login_register_font_size btn btn-primary btn-lg p_texte_1 text-white">
                                 S'enregistrer
@@ -127,9 +132,9 @@
                                 value="{{ old('email') }}" autocomplete="email" autofocus placeholder="Votre Email">
 
                             @error('email')
-                                <span class="invalid-feedback" role="alert">
+                                <div class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
-                                </span>
+                                </div>
                             @enderror
                         </div>
                     </div>
@@ -146,13 +151,12 @@
                                 <img src="{{ asset('img/eye.png') }}" alt="" class="eye_icon eye_open_login">
                                 <img src="{{ asset('img/cross_eye.png') }}" alt="" class="eye_icon eye_off_login d-none">
                             </button>
-
-                            @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
                         </div>
+                        @error('password')
+                            <div class="text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </div>
+                        @enderror
                     </div>
 
 
@@ -166,7 +170,7 @@
                             </label>
                         </div>
 
-                        <div class="mt-4 mb-4 mt-lg-5 mb-lg-5">
+                        <div class="mt-4 mb-4 mt-md-5 mb-md-5">
                             <button type="submit"
                                 class="btn_login_register_font_size btn btn-primary btn-lg p_texte_1 text-white">
                                 Connexion
@@ -212,7 +216,7 @@
             $('.reveal_password_login').click(function() {
                 /* REVELER LE PASSWORD LOGIN*/
                 if (!$('.eye_open_login').hasClass('d-none')) {
-              
+
                     $('.eye_open_login').addClass('d-none');
                     $('.eye_off_login').removeClass('d-none');
                     $('.password_login_reveal').attr('type', 'text');

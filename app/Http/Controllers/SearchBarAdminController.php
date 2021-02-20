@@ -22,9 +22,12 @@ class SearchBarAdminController extends Controller
         if ($request->ajax()) {
 
             $query = $request->get('query');
-            $datas = City::select('name')
+            
+            $datas = DB::table('cities')
+                ->select('name')->distinct()
+                ->orderBy('name')
                 ->where('name', 'LIKE', $query . '%')
-                ->distinct()
+                ->OrWhere('zip_code', 'LIKE', $query . '%')
                 ->get();
 
             $result = '<div id="div_result_li_city"><ul class="list-unstyled">';
