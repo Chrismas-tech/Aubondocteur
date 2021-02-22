@@ -9,7 +9,7 @@
                 <h1 class="display-4 lobster media_title_welcome_page">Vous avez trouvé un médecin prés de chez vous mais vous hésitez à le consulter ?</h1>
 
                 <div class="text-left">
-                    <p class="lead lora p_texte_1 lobster mt-5 mb-5 media_info_welcome_page">Sur notre plateforme <span class="bold">aubonmedecin.com</span>, consultez les avis positifs sur vos praticiens et trouvez en un rapidement près de chez vous !</p>
+                    <p class="lead lora p_texte_1 lobster mt-5 mb-5 media_info_welcome_page">Sur notre plateforme <span class="bold">aubondocteur.com</span>, consultez les avis positifs sur vos praticiens et trouvez en un rapidement près de chez vous !</p>
                 </div>
 
                 <hr>

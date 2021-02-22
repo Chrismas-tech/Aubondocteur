@@ -19,7 +19,7 @@ class MedecinController extends Controller
     public function index()
     {
         $count_medecins = -1;
-        $specialities = Speciality::orderBy('speciality_name', 'asc')->get();
+        $specialities = Speciality::orderBy('speciality', 'asc')->get();
         return view('accueil', compact('specialities', 'count_medecins'));
     }
 
@@ -42,23 +42,25 @@ class MedecinController extends Controller
         /* LE NOM DE LA VILLE AVEC UNE SEULE MAJUSCULE POUR RENVOYER A LA VUE */
         $result_city = ucfirst($result_city);
 
-        /* ON DEMANDE TOUS LES MEDECINS VALIDES PAR L'ADMIN CORRESPONDANT A LA SPECIALITE DE L'UTILISATEUR ET A LA VILLE CHOISIE */
+        dd($result_speciality);
 
-        $medecins = Medecin::where('speciality', '=', $result_speciality)
+        /* ON DEMANDE TOUS LES MEDECINS VALIDES PAR L'ADMIN CORRESPONDANT A LA SPECIALITE DE L'UTILISATEUR ET A LA VILLE CHOISIE */
+        $medecins = Medecin::where('speciality', $result_speciality)
             ->where('city', 'LIKE', $city_uppercase . '%')
-            ->where('validation_status_medecin', '=', 1)
-            ->orderBy('medecin_last_name', 'asc')
+            ->where('validation_status_medecin', 1)
+            ->orderBy('medecin_name', 'asc')
             ->paginate(25);
 
-        $nb_medecins = Medecin::where('speciality', '=', $result_speciality)
+        $nb_medecins = Medecin::where('speciality', $result_speciality)
             ->where('city', 'LIKE', $city_uppercase . '%')
-            ->where('validation_status_medecin', '=', 1)->get();
+            ->where('validation_status_medecin', 1)->get();
 
+        dd($medecins);
 
         if ($medecins->isEmpty()) {
 
             $count_medecins = count($medecins);
-            $specialities = Speciality::orderBy('speciality_name', 'asc')->get();
+            $specialities = Speciality::orderBy('speciality', 'asc')->get();
 
             return view('accueil', compact('specialities', 'medecins', 'result_speciality', 'result_city', 'count_medecins'));
         } else {
@@ -110,7 +112,7 @@ class MedecinController extends Controller
             }
 
             $count_medecins = count($nb_medecins);
-            $specialities = Speciality::orderBy('speciality_name', 'asc')->get();
+            $specialities = Speciality::orderBy('speciality', 'asc')->get();
 
             return view('liste_medecins', compact('specialities', 'medecins', 'result_speciality', 'result_city', 'count_medecins'));
         }
@@ -134,7 +136,7 @@ class MedecinController extends Controller
         $medecins = Medecin::where('speciality', '=', $result_speciality)
             ->where('address', 'LIKE', '%' . $city_uppercase . '%')
             ->where('validation_status_medecin', '=', 1)
-            ->orderBy('medecin_last_name', 'asc')->paginate(5);
+            ->orderBy('medecin_name', 'asc')->paginate(5);
 
         $nb_medecins = Medecin::where('speciality', '=', $result_speciality)
             ->where('address', 'LIKE', '%' . $city_uppercase . '%')
@@ -143,13 +145,13 @@ class MedecinController extends Controller
         if ($medecins->isEmpty()) {
 
             $count_medecins = count($medecins);
-            $specialities = Speciality::orderBy('speciality_name', 'asc')->get();
+            $specialities = Speciality::orderBy('speciality', 'asc')->get();
 
             return view('accueil', compact('specialities', 'medecins', 'result_speciality', 'result_city', 'count_medecins'));
         } else {
 
             $count_medecins = count($nb_medecins);
-            $specialities = Speciality::orderBy('speciality_name', 'asc')->get();
+            $specialities = Speciality::orderBy('speciality', 'asc')->get();
 
             return view('liste_medecins', compact('specialities', 'medecins', 'result_speciality', 'result_city', 'count_medecins'));
         }
@@ -191,7 +193,7 @@ class MedecinController extends Controller
 
                     $zip_code = ($response["features"][0]["properties"]["postcode"]);
 
-                    
+
                     $city = strtoupper($response["features"][0]["properties"]["city"]);
 
                     $new_address = ($response["features"][0]["properties"]["name"]);

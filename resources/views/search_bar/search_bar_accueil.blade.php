@@ -7,8 +7,8 @@
             <select type="text" name="select_accueil" id="select_accueil" class="form-control">
                 <option id="media_queries_option">Spécialité du médecin</option>
                 @foreach ($specialities as $speciality)
-                    <option @if (Request::get('select_accueil') == $speciality->speciality_name) selected @endif value="{{ $speciality->speciality_name }}">
-                        {{ $speciality->speciality_name }}
+                    <option @if (Request::get('select_accueil') == $speciality->speciality) selected @endif value="{{ $speciality->speciality }}">
+                        {{ $speciality->speciality }}
                     </option>
                 @endforeach
             </select>

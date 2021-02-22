@@ -85,7 +85,7 @@
                 </form>
 
                 <div>
-                    <p class="lead lora p_texte_1 mt-5 mb-5">Notre plateforme <span class="bold">AuBonMedecins.ml</span>
+                    <p class="lead lora p_texte_1 mt-5 mb-5">Notre plateforme <span class="bold">aubondocteur.ml</span>
                         vous
                         propose sans frais de consulter
                         uniquement
