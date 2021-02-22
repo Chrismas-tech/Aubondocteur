@@ -293,7 +293,7 @@ table td {
     width: 100%;
 }
 
-.a_result {
+.p_result {
     font-size: 20px;
     cursor: pointer;
     text-decoration: none;
@@ -301,7 +301,7 @@ table td {
     color: rgb(42, 148, 240);
 }
 
-.a_result:hover {
+.p_result:hover {
     background-color: #0a93e2;
     color: white;
     padding: 5px;
@@ -404,7 +404,7 @@ table td {
 #div_result_li_city {
     z-index: 1;
     position: absolute;
-    padding-left: 10px;
+    padding-left: 8px;
     padding-top: 10px;
     overflow: auto;
     max-height: 150px;
@@ -492,6 +492,10 @@ table td {
 
 /*MEDIA QUERIES*/
 
+.media_nb_review_medecin {
+    font-size: 26px;
+}
+
 @media screen and (min-width: 1875px) {
     .media_window_white_width {
         width: 60%;
@@ -537,6 +541,9 @@ table td {
     .media_icon_info_medecin {
         width: 20px;
         height: 20px;
+    }
+    .media_nb_review_medecin {
+        font-size: 21px;
     }
     /*LOGIN - REGISTER*/
 }
@@ -595,9 +602,6 @@ table td {
     .media_see_review_medecin {
         font-size: 15px;
     }
-    .media_nb_review_medecin {
-        font-size: 22px;
-    }
     .map {
         height: 445px;
         width: 450px;
@@ -653,11 +657,8 @@ table td {
     .media_phone_medecin {
         font-size: 18px;
     }
-    .media_give_review_medecin {
-        font-size: 13px;
-    }
-    .media_see_review_medecin {
-        font-size: 13px;
+    .mq_width_search_bar {
+        width: 60%;
     }
     .map {
         height: 428px;
@@ -702,10 +703,10 @@ table td {
         font-size: 18px;
     }
     .media_give_review_medecin {
-        font-size: 11px;
+        font-size: 15px;
     }
     .media_see_review_medecin {
-        font-size: 11px;
+        font-size: 15px;
     }
     .map {
         height: 410px;
@@ -713,7 +714,7 @@ table td {
     }
 }
 
-@media screen and (max-width: 1075px) {
+@media screen and (max-width: 1110px) {
     /*PAGE ACCUEIL*/
     /*PAGE ACCUEIL*/
     .media_title_welcome_page {
@@ -759,6 +760,9 @@ table td {
         height: 410px;
         width: 300px;
     }
+    .mq_width_search_bar {
+        width: 70%;
+    }
 }
 
 @media screen and (max-width: 991px) {
@@ -791,11 +795,11 @@ table td {
         padding: 2px;
     }
     .media_button_welcome_page_nav {
-        font-size: 18px;
+        font-size: 14px;
     }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 920px) {
     /*PAGE ACCUEIL*/
     /*PAGE ACCUEIL*/
     .media_button_end_welcome_page {
@@ -813,7 +817,7 @@ table td {
     }
 }
 
-@media screen and (max-width: 856px) {
+@media screen and (max-width: 900px) {
     /*LISTE MEDECINS*/
     /*LISTE MEDECINS*/
     .media_name_medecin {
@@ -826,13 +830,13 @@ table td {
         font-size: 15px;
     }
     .media_nb_review_medecin {
-        font-size: 14px;
+        font-size: 17px;
     }
     .media_give_review_medecin {
-        font-size: 10px;
+        font-size: 14px;
     }
     .media_see_review_medecin {
-        font-size: 10px;
+        font-size: 14px;
     }
     .map {
         height: 313px;
@@ -854,6 +858,23 @@ table td {
 @media screen and (max-width: 767px) {
     /*PAGE ACCUEIL*/
     /*PAGE ACCUEIL*/
+    .mq_flex {
+        display: flex !important;
+        flex-direction: column;
+        margin-bottom: 10px;
+        justify-content: space-between;
+    }
+    .mq_flex_2 {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .mq_margin_bottom {
+        margin-bottom: 10px;
+    }
+    .mq_nav_flex {
+        display: block !important;
+    }
     .media_button_end_welcome_page {
         font-size: 15px;
         padding: 10px;
@@ -923,6 +944,9 @@ table td {
     .media_see_review_medecin {
         font-size: 16px;
     }
+    .media_leaflet_card {
+        margin-bottom: 80px !important;
+    }
     .media_medecin_card {
         width: 99%;
         margin: auto;
@@ -936,26 +960,30 @@ table td {
     .media_button_welcome_page_nav {
         font-size: 15px;
     }
+    .mq_width_search_bar {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 699px) {
+    .mq_flex_2 {
+        display: flex !important;
+        flex-direction: column;
+        margin-bottom: 10px;
+        justify-content: space-between;
+    }
+    .btn_logout_width {
+        width: 100%;
+    }
+    .mq_margin_bottom {
+        margin-bottom: 10px;
+    }
+    .media_button_welcome_page_nav {
+        margin-right: 0;
+    }
 }
 
 @media screen and (max-width: 616px) {
-    /*PAGE ACCUEIL*/
-    /*PAGE ACCUEIL*/
-    .media_icon_nav {
-        display: none;
-    }
-    .media_button_welcome_page_nav {
-        font-size: 12px;
-    }
-    .media_title_welcome_page {
-        font-size: 23px;
-    }
-    .media_info_welcome_page {
-        font-size: 15px;
-    }
-    .media_accueil_error_2 {
-        font-size: 12px;
-    }
     /*LISTE MEDECINS*/
     /*LISTE MEDECINS*/
     .media_give_review_medecin {
@@ -964,9 +992,262 @@ table td {
     .media_see_review_medecin {
         font-size: 12px;
     }
+    .mq_width_search_bar {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    /*PAGE ACCUEIL*/
+    /*PAGE ACCUEIL*/
     .media_button_welcome_page_nav {
+        margin-right: 0px !important;
+        font-size: 20px;
+    }
+    .media_icon_nav {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+
+/* ADMIN CONNECTION */
+
+
+/* ADMIN CONNECTION */
+
+
+/* ADMIN CONNECTION */
+
+
+/* ADMIN CONNECTION */
+
+
+/* ADMIN CONNECTION */
+
+.my_min_height_admin_connection {
+    height: calc(100vh - 72px);
+}
+
+.input_text_lg {
+    padding-left: 15px;
+    font-size: 28px;
+    width: 100%;
+    border: solid 1px rgb(128, 128, 128);
+}
+
+.input_text_lg:focus {
+    outline: none;
+    border: solid 2px #66afe9;
+}
+
+.form-rounded {
+    border-radius: 0.8rem;
+}
+
+
+/* MEDIA QUERIES ACCUEIL COMPTE */
+
+
+/* MEDIA QUERIES ACCUEIL COMPTE */
+
+
+/* MEDIA QUERIES ACCUEIL COMPTE */
+
+
+/* MEDIA QUERIES ACCUEIL COMPTE */
+
+.mq_width {
+    width: 90%;
+}
+
+.mq_txt_new_research {
+    font-size: 23px;
+}
+
+.mq_txt_light {
+    font-size: 29px;
+}
+
+.mq_txt_bold {
+    font-size: 29px;
+}
+
+.mq_comment_txt {
+    font-size: 15px;
+}
+
+.mq_title_col_left {
+    font-size: 30px;
+}
+
+.mq_title_first_title {
+    font-size: 38px;
+}
+
+.mq_btn_modify,
+.mq_btn_delete {
+    font-size: 18px;
+}
+
+.opacity_2 {
+    opacity: 0.83;
+}
+
+@media screen and (max-width: 1584px) {
+    .mq_txt_new_research {
+        font-size: 19px;
+    }
+    .mq_txt_light {
+        font-size: 25px;
+    }
+    .mq_txt_bold {
+        font-size: 23px;
+    }
+    .mq_comment_txt {
+        font-size: 13px;
+        margin-bottom: 0;
+        padding: 0;
+    }
+    .mq_pad_col_left {
+        padding: 30px !important;
+    }
+}
+
+@media screen and (max-width: 1357px) {
+    .mq_title_col_left {
+        font-size: 25px;
+    }
+    .mq_txt_new_research {
+        font-size: 16px;
+    }
+    .mq_btn_modify,
+    .mq_btn_delete {
         font-size: 14px;
-        padding: 8px;
-        margin: 10px;
+    }
+    .mq_txt_light {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 1212px) {
+    .mq_txt_light {
+        font-size: 20px;
+    }
+    .mq_title_first_title {
+        font-size: 30px;
+    }
+    .mq_pad_col_left {
+        padding: 15px !important;
+    }
+    .mq_txt_new_research {
+        font-size: 16px;
+    }
+    .mq_txt_light {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 1166px) {
+    .mq_comment_txt {
+        font-size: 13px;
+    }
+    .mq_width {
+        width: 97%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .mq_flex_block {
+        display: block !important;
+    }
+    .mq_btn_modify,
+    .mq_btn_delete {
+        font-size: 16px;
+    }
+    .mq_title_col_left {
+        font-size: 30px;
+    }
+    .mq_comment_txt {
+        font-size: 18px;
+        margin-bottom: 0;
+        padding: 0;
+    }
+    .mq_txt_light {
+        font-size: 22px;
+    }
+    .mq_pad_col_left {
+        padding: 30px !important;
+    }
+    .mq_txt_new_research {
+        font-size: 20px;
+    }
+    .mq_width {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .mq_txt_new_research {
+        font-size: 17px;
+    }
+}
+
+
+/* MEDIA QUERIES LOGIN - REGISTER */
+
+.input_rounded_right_0 {
+    border-top-right-radius: 0% !important;
+    border-bottom-right-radius: 0% !important;
+    border-right: none;
+}
+
+.eye_icon {
+    width: 30px;
+    height: auto;
+}
+
+.my_min_height_login {
+    height: calc(100vh - 72px);
+}
+
+.mq_h1_font_size h1 {
+    font-size: 3.8rem;
+}
+
+.btn_login_register_font_size {
+    font-size: 1.8rem;
+}
+
+@media screen and (max-width: 1782px) {
+    .mq_h1_font_size h1 {
+        font-size: 3rem;
+    }
+    .btn_login_register_font_size {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 1452px) {
+    .mq_h1_font_size h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 1230px) {
+    .mq_h1_font_size h1 {
+        font-size: 2.1rem;
+    }
+}
+
+@media screen and (max-width: 1020px) {
+    .mq_h1_font_size h1 {
+        font-size: 1.9rem;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .my_min_height_login {
+        height: 100%;
     }
 }

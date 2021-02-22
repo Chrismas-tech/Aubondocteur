@@ -35,7 +35,7 @@ class ChangePasswordController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function store(Request $request)
+    public function change_password(Request $request)
     {
         $request->validate([
             'current_password' => ['required', new MatchOldPassword],
@@ -45,10 +45,10 @@ class ChangePasswordController extends Controller
 
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
 
-        return redirect('/compte');
+        return redirect('/accueil_compte')->with('password_modified', 'Le mot de passe a bien été modifié !');
     }
 
-    public function update_name_user(Request $request,$id)
+    public function change_name(Request $request,$id)
     {
         $request->validate([
             'name' => 'required|',
@@ -56,6 +56,6 @@ class ChangePasswordController extends Controller
 
         $user = User::where('id', $id);
         $user->update(['name' => $request->name]);
-        return redirect('/compte');
+        return redirect('/accueil_compte')->with('name_modified', 'Le nom a bien été modifié !');
     }
 }

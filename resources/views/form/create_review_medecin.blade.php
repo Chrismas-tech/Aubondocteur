@@ -38,7 +38,7 @@
                             <div class="input-group-lg mt-4 mb-4">
 
                                 <div class="d-flex">
-                                    <label class="text-white p_texte_1" for="review" >Décrivez-nous comment s'est déroulé votre consultation :) </label>
+                                    <label class="text-white p_texte_1" for="review" >Décrivez-nous comment s'est déroulé votre consultation</label>
                                 </div>
 
                                 <textarea id="review" name="review" type="text" cols="10" rows="10"
@@ -74,7 +74,7 @@
         </form>
 
         <div class="text-center mt-5 mb-5">
-            <a href="{{ route('compte.index') }}" class="btn btn-primary btn-lg">
+            <a href="{{ route('accueil_compte') }}" class="btn btn-primary btn-lg">
                 Revenir sur votre espace personnel
             </a>
         </div>

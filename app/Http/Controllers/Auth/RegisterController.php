@@ -30,7 +30,7 @@ class RegisterController extends Controller
      */
     public function redirectTo()
     {
-            return '/compte';
+            return '/accueil_compte';
     }
 
     /**

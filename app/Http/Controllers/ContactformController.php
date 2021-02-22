@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactformController extends Controller
 {
-    public function contact_form_index()
+    public function contact_page()
     {
         return view('contact_form');
     }
@@ -21,8 +21,8 @@ class ContactformController extends Controller
             'message' => 'required|',
         ]);
 
-        Mail::to('test@test.com')->send(new ContactMail($data));
-        return redirect('/')->with('message', 'Votre message a bien été envoyé !');
+        Mail::to('ichrisinfo@gmail.com')->send(new ContactMail($data));
+        return redirect()->back()->with('message', 'Votre message a bien été envoyé à l\'administrateur !');
  
     }
 

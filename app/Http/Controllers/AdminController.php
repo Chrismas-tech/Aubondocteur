@@ -20,32 +20,53 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function __construct()
     {
-        $nb_medecins_waiting = DB::table('medecins')->where('validation_status_medecin','=',3)->count();
-        $nb_medecins_refused = DB::table('medecins')->where('validation_status_medecin','=',2)->count();
-        $nb_medecins_validated = DB::table('medecins')->where('validation_status_medecin','=',1)->count();
+        $this->middleware('admin', ['except' => array('page_connection')]);
+    }
+
+    public function admin_logout(Request $request)
+    {
+        $request->session()->forget('admin_name');
+        $request->session()->forget('admin_password');
+
+        return redirect('/');
+    }
+
+    public function connexion_verified() {
+        return redirect('admin_dashboard');
+    }
+
+    public function page_connection()
+    {
+       return view('admin.page_connection');
+    }
+
+    public function admin_dashboard()
+    {
+        $nb_medecins_waiting = DB::table('medecins')->where('validation_status_medecin', '=', 3)->count();
+        $nb_medecins_refused = DB::table('medecins')->where('validation_status_medecin', '=', 2)->count();
+        $nb_medecins_validated = DB::table('medecins')->where('validation_status_medecin', '=', 1)->count();
 
         $count_nb_reviews_waiting = DB::table('users')->sum('nb_reviews_waiting');
         $count_nb_reviews_refused = DB::table('users')->sum('nb_reviews_refused');
         $count_nb_reviews_validated = DB::table('users')->sum('nb_reviews_validated');
 
         $nb_users = User::count();
-        $user = Auth::user();
         $users_all = User::paginate(20);
 
-        return view('admin.admin_index', compact('user', 'nb_users', 'count_nb_reviews_waiting', 'count_nb_reviews_refused', 'count_nb_reviews_validated', 'users_all','nb_medecins_waiting','nb_medecins_refused','nb_medecins_validated'));
+        return view('admin.admin_dashboard', compact('nb_users', 'count_nb_reviews_waiting', 'count_nb_reviews_refused', 'count_nb_reviews_validated', 'users_all', 'nb_medecins_waiting', 'nb_medecins_refused', 'nb_medecins_validated'));
     }
-
 
     public function destroy($id)
     {
         $users = User::findOrFail($id);
-        $reviews = Review::where('user_id','=',$id);
+        $reviews = Review::where('user_id', '=', $id);
 
         $users->delete();
         $reviews->delete();
-        
+
         return redirect('admin');
     }
 
@@ -99,7 +120,6 @@ class AdminController extends Controller
     //GESTIONNAIRE DE VALIDATION : CHANGEMENT DE STATUS DES REVIEWS OU DES MEDECINS 
     //GESTIONNAIRE DE VALIDATION : CHANGEMENT DE STATUS DES REVIEWS OU DES MEDECINS 
     //GESTIONNAIRE DE VALIDATION : CHANGEMENT DE STATUS DES REVIEWS OU DES MEDECINS 
-
 
     public function gestionnaire_medecins_validated()
     {
@@ -167,7 +187,7 @@ class AdminController extends Controller
     {
         //REVIEWS
         $review_status_refused = Review::orderBy('created_at', 'desc')->where('validation_status_review', '=', 2)->paginate(50);
-        
+
         $review_count_refused = $review_status_refused->count();
 
         return view('admin.gestionnaire_reviews_refused', compact(

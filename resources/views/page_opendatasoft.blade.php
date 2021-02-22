@@ -5,10 +5,10 @@
             @csrf
 
             <select type="text" name="select_accueil" id="select_accueil" class="form-control">
-                <option id="media_queries_option" value="">Spécialité du médecin</option>
+                <option id="media_queries_option">Spécialité du médecin</option>
                 @foreach ($specialities as $speciality)
-                    <option @if (Request::get('select_accueil') == $speciality->speciality) selected @endif value="{{ $speciality->speciality }}">
-                        {{ $speciality->speciality}}
+                    <option @if (Request::get('select_accueil') == $speciality->speciality_name) selected @endif value="{{ $speciality->speciality_name }}">
+                        {{ $speciality->speciality_name }}
                     </option>
                 @endforeach
             </select>
@@ -16,7 +16,7 @@
 
     <div class="search_bar_flex_basis_2">
         <input name="input_search_accueil" type="text" id="input_search_accueil" class="form-control"
-            placeholder="{{ Request::get('input_search_accueil') ? Request::get('input_search_accueil') : 'Recherchez une ville ou un code postal' }}" value="{{ Request::get('input_search_accueil') ? Request::get('input_search_accueil') :'' }}" autocomplete="off">
+            placeholder="{{ Request::get('input_search_accueil') ? Request::get('input_search_accueil') : 'Recherchez une ville ou un code postal' }}" value="{{ Request::get('input_search_accueil') ? Request::get('input_search_accueil') :'' }}">
 
         <div id="city_list" class="text-left"></div>
         @csrf

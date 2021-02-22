@@ -1,9 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
-
     <div class="d-flex justify-content-center pt-5 pb-5 banner_list_medecins">
-        <div class="p-3 jumb_1_vignette bg-white opacity_1">
+        <div class="p-3 jumb_1_vignette bg-white opacity_1 mq_width_search_bar">
             <div class="text-center">
                 <h1 class="display-6 lobster text-primary mb-4 mt-3 media_title_welcome_page">Nouvelle recherche</h1>
             </div>
@@ -11,12 +10,11 @@
         </div>
     </div>
 
-    <!-- FOREACH MEDECINS LISTE-->
-    <!-- FOREACH MEDECINS LISTE-->
-    <!-- FOREACH MEDECINS LISTE-->
-    <!-- FOREACH MEDECINS LISTE-->
-    <!-- FOREACH MEDECINS LISTE-->
-
+    <!-- FOREACH MEDECINS LIST -->
+    <!-- FOREACH MEDECINS LIST -->
+    <!-- FOREACH MEDECINS LIST -->
+    <!-- FOREACH MEDECINS LIST -->
+    <!-- FOREACH MEDECINS LIST -->
 
     <div class="bg_gradient_1 p-sm-3">
 
@@ -33,8 +31,6 @@
             </div>
         @endif
 
-
-
         @php
             $i = 0;
         @endphp
@@ -42,22 +38,17 @@
         @foreach ($medecins as $medecin)
 
             <div class="w-lg-70 w-sm-80">
-
                 <div class="text-primary m-0 p-4 rounded">
-
                     <div class="d-md-flex justify-content-center opacity_1">
 
-                        <div class="card border-black p-0 window_shadow mr-md-5 media_medecin_card mb-sm-5">
+                        <div class="card border-black p-0 window_shadow mr-md-5 media_medecin_card mb-3">
                             <div class="card-header text-white bg-success">
                                 <h3 class="m-0 p-0 lora text-white media_title_card">{{ $result_speciality }}</h3>
                             </div>
 
                             <div class="card-body text-black p-2 p-lg-2 m-0">
-
                                 <div class="alert alert-success p-sm-2 p-lg-4 m-0" role="alert">
-
                                     <div class="card p-3 domine text-dark">
-
                                         <div class="d-flex align-items-center p-texte mt-2 mb-4">
                                             <img src="{{ asset('img/medecin-icon.png') }}" alt=""
                                                 class="icon_info_docteur media_icon_profile_medecin">
@@ -103,7 +94,6 @@
                                                 @endif
                                             </h6>
                                         </div>
-
                                     </div>
 
                                     <div class="card mt-2 mb-2 mt-lg-4 mb-lg-4 mt-md-3 mb-md-3">
@@ -114,15 +104,15 @@
                                                     commentaire
                                                     sur
                                                     ce
-                                                    médecin.
+                                                    médecin
                                                 </p>
                                             @elseif ($medecin->nb_reviews > 1)
                                                 <p class="card-text lobster p_texte_2 media_nb_review_medecin">
-                                                    Il y a {{ $medecin->nb_reviews }} commentaires sur ce médecin.
+                                                    Il y a {{ $medecin->nb_reviews }} commentaires sur ce médecin
                                                 </p>
                                             @else
                                                 <p class="card-text lobster p_texte_2 media_nb_review_medecin">
-                                                    Il n'y a pas encore de commentaire sur ce médecin.
+                                                    Il n'y a pas encore de commentaire sur ce médecin
                                                 </p>
                                             @endif
                                         </div>
@@ -160,9 +150,7 @@
                                         </form>
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
 
                         <!-- LEAFLET -->
@@ -179,7 +167,7 @@
                         <!-- LEAFLET -->
 
                         <div class="media_leaflet_card mt-3 mt-sm-0 ">
-                            <div class="card p-0 window_shadow">
+                            <div class="card p-0 window_shadow ">
                                 <div class="card-header text-white lora text-center bg-primary">
                                     <h3 class="m-0 p-0 media_title_card">Mappy</h3>
                                 </div>
@@ -188,9 +176,7 @@
                                 <div hidden id="gps_lat_{{ $i }}">{{ $medecin->gps_lat }}</div>
                                 <div hidden id="gps_lng_{{ $i }}">{{ $medecin->gps_lng }}</div>
 
-
                                 <div class="map" id="leaflet_carte_{{ $i }}">Carte</div>
-
                             </div>
                         </div>
                     </div>
@@ -203,77 +189,8 @@
             @endphp
 
         @endforeach
-        <div class="d-flex justify-content-center p_texte_2">
-            {{ $medecins->links() }}
+        <div class="d-flex justify-content-center pt-4 p_texte_3">
+            {{ $medecins->appends(['select_accueil' => $result_speciality, 'input_search_accueil' => $result_city])->links() }}
         </div>
     </div>
-
-
-    <!-- SCRIPT -->
-    <!-- SCRIPT -->
-    <!-- SCRIPT -->
-    <!-- SCRIPT -->
-    <!-- SCRIPT -->
-
-
-
-    <script>
-        $('document').ready(function() {
-
-            $('#input_search_accueil').keyup(function() {
-
-                var query = $(this).val();
-
-                if (query != '' && query.length > 2) {
-
-
-                    var _token = $('input[name="_token"]').val();
-
-                    $.ajax({
-
-                        url: "{{ route('autocomplete_search') }}",
-                        method: "POST",
-                        data: {
-                            query: query,
-                            _token: _token
-                        },
-
-                        success: function(res) {
-
-                            $('#city_list').fadeIn();
-                            $('#city_list').html(res);
-
-                        }
-
-                    });
-                }
-            });
-
-            $('document').ready(function() {
-                // Si on clique sur un li alors
-                $(document).on('click', 'li', function() {
-                    //  console.log('yolo2'):
-                    $('#input_search_accueil').val($(this).text());
-                    $('#city_list').fadeOut();
-                });
-            });
-
-
-        });
-
-        $('document').ready(function() {
-            $("body").click(function(e) {
-                $('#city_list').empty();
-            });
-        });
-
-        $('document').ready(function() {
-
-            $("body").click(function(e) {
-                $('#city_list').empty();
-            });
-
-        });
-
-    </script>
 @endsection

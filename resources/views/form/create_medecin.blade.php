@@ -14,7 +14,7 @@
                 <div class="card-body pd-4 bg_gradient_1">
 
                     <div style="width:80%;margin:auto">
-                        <form action="{{ route('store_medecin') }}" method="POST" class="text-center">
+                        <form action="{{ route('add_medecin') }}" method="POST" class="text-center">
                             @csrf
 
                             <div class="input-group-lg mt-4 mb-4">
@@ -50,8 +50,7 @@
 
                                     @foreach ($specialities as $speciality)
 
-                                        <option
-                                            value=" {{$speciality->speciality_name }}"
+                                        <option value=" {{ $speciality->speciality_name }}"
                                             {{ old('speciality') == $speciality->speciality_name ? 'selected' : '' }}>
                                             {{ $speciality->speciality_name }}
                                         </option>
@@ -83,13 +82,10 @@
                             </div>
 
                             <div>
-                                <input hidden name="gps_lat" id="gps_lat" type="text">
-                                <input hidden name="gps_lng" id="gps_lng" type="text">
-
                                 <input hidden name="city" id="city" type="text">
                                 <input hidden name="zip_code" id="zip_code" type="text">
-
-
+                                <input hidden name="gps_lat" id="gps_lat" type="text">
+                                <input hidden name="gps_lng" id="gps_lng" type="text">
                             </div>
 
                             <div class="input-group-lg mt-4 mb-4">
@@ -100,7 +96,11 @@
                                 @error('phone')
                                     <div class="text-white mt-1 text-left">{{ $errors->first('phone') }}</div>
                                 @enderror
+                            </div>
 
+                            <div class="input-group-lg mt-4 mb-4">
+                                <input id="email" type="tel" class="form-control" name="email" value="{{ old('email') }}"
+                                    autocomplete="email" autofocus placeholder="Email du médedecin (falcutatif)">
                             </div>
 
                             <div>
@@ -120,7 +120,7 @@
             </form>
 
             <div class="text-center mt-5 mb-5">
-                <a href="{{ route('compte.index') }}" class="btn btn-primary btn-lg">
+                <a href="{{ route('accueil_compte') }}" class="btn btn-primary btn-lg">
                     Revenir sur votre espace personnel
                 </a>
             </div>
@@ -161,7 +161,7 @@
                     axios.get(url_geo_api_gouv).then(res => {
 
                         $('#div_address').append(
-                            '<h5 class="lora text-primary border-primary border-bottom border-top text-left bg-white m-0 p-3">Choisissez parmi les résultats suggérés <img src="{{ asset('img/arrow-down.png')}}" alt="" class="icon_info "></h5>'
+                            '<h5 class="lora text-primary border-primary border-bottom border-top text-left bg-white m-0 p-3">Choisissez parmi les résultats suggérés <img src="{{ asset('img/arrow-down.png') }}" alt="" class="icon_info "></h5>'
                         );
 
                         $.each(res.data.features, function(key, val) {
@@ -176,18 +176,14 @@
 
             });
 
-        });
 
 
+            /*GEOGRAPHY LAT - LONG */
+            /*GEOGRAPHY LAT - LONG */
+            /*GEOGRAPHY LAT - LONG */
+            /*GEOGRAPHY LAT - LONG */
+            /*GEOGRAPHY LAT - LONG */
 
-        /*GEOGRAPHY LAT - LONG */
-        /*GEOGRAPHY LAT - LONG */
-        /*GEOGRAPHY LAT - LONG */
-        /*GEOGRAPHY LAT - LONG */
-        /*GEOGRAPHY LAT - LONG */
-
-
-        $(document).ready(function() {
 
             $(document).on('click', 'li', function() {
 
@@ -210,49 +206,26 @@
 
                     $.each(res.data.features[0].geometry.coordinates, function(key,
                         val) {
-                        console.log(res.data.features[0].geometry.coordinates);
 
                         $('#gps_lng').val(res.data.features[0].geometry.coordinates[
                             0]);
                         $('#gps_lat').val(res.data.features[0].geometry.coordinates[
                             1]);
 
-                    })
+                        console.log(res.data.features[0].properties.city);
+                        console.log(res.data.features[0].properties.postcode);
 
-                    $('#div_address').empty();
+                        $('#city').val(res.data.features[0].properties.city);
+                        $('#zip_code').val(res.data.features[0].properties.postcode);
+
+                    })
 
                 });
 
             });
 
-        });
 
 
-        $(document).ready(function() {
-
-            $(document).on('click', 'li', function() {
-
-                // GPS LATITUDE - LONGITUDE DE L'ADRESSE SELECTIONNEE 
-
-                $address_space = $('#address').val();
-                $address_without_spaces = $address_space.replace(/\s/g, '+');
-
-                var url_geo_api_gouv = "https://api-adresse.data.gouv.fr/search/?q=" +
-                    $address_without_spaces;
-
-                axios.get(url_geo_api_gouv).then(res => {
-
-                    console.log(res.data.features[0].properties.city);
-                    console.log(res.data.features[0].properties.postcode);
-
-                    $('#city').val(res.data.features[0].properties.city);
-                    $('#zip_code').val(res.data.features[0].properties.postcode);
-
-                })
-            });
-        });
-
-        $(document).ready(function() {
             $('body').click(function() {
                 $('#div_address').empty();
             })

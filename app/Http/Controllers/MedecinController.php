@@ -18,8 +18,15 @@ class MedecinController extends Controller
 {
     public function index()
     {
+        $specialities = Speciality::orderBy('speciality', 'asc')->get();
+
+        foreach($specialities as $speciality) {
+            if($speciality->speciality) {
+
+            }
+        }
+
         $count_medecins = -1;
-        $specialities = Speciality::orderBy('speciality_name', 'asc')->get();
         return view('accueil', compact('specialities', 'count_medecins'));
     }
 
@@ -27,31 +34,30 @@ class MedecinController extends Controller
     {
 
         /*VALIDATION FORMULAIRE*/
-        /*VALIDATION FORMULAIRE*/
-        /*VALIDATION FORMULAIRE*/
-
         $request->validate([
             'select_accueil' => 'required|',
             'input_search_accueil' => 'required|',
         ]);
 
-        /*Nom de la ville en majusucule car l'adresse BDD est en Uppercase*/
+        /* NOM DE LA VILLE EN MAJUSCULE POUR COMPARER AVEC COLONNE CITY DE LA BDD */
         $city_uppercase = strtoupper($request->input_search_accueil);
 
         $result_speciality = $request->select_accueil;
         $result_city = $request->input_search_accueil;
 
+        /* LE NOM DE LA VILLE AVEC UNE SEULE MAJUSCULE POUR RENVOYER A LA VUE */
         $result_city = ucfirst($result_city);
 
+        /* ON DEMANDE TOUS LES MEDECINS VALIDES PAR L'ADMIN CORRESPONDANT A LA SPECIALITE DE L'UTILISATEUR ET A LA VILLE CHOISIE */
+
         $medecins = Medecin::where('speciality', '=', $result_speciality)
-            ->where('address', 'LIKE', '%' . $city_uppercase . '%')
+            ->where('city', 'LIKE', $city_uppercase . '%')
             ->where('validation_status_medecin', '=', 1)
             ->orderBy('medecin_last_name', 'asc')
-            ->paginate(5);
-
+            ->paginate(25);
 
         $nb_medecins = Medecin::where('speciality', '=', $result_speciality)
-            ->where('address', 'LIKE', '%' . $city_uppercase . '%')
+            ->where('city', 'LIKE', $city_uppercase . '%')
             ->where('validation_status_medecin', '=', 1)->get();
 
 
@@ -74,7 +80,7 @@ class MedecinController extends Controller
                     $medecin->save;
                 }
 
-                /*Si la latitude et la longitude n'existe pas en BDD, on les enregistre */
+                /*SI LA LATITUDE ET LA LONGITUDE N'EXISTENT PAS SUR LA BDD, ON lES ENREGISTRE */
 
                 if ($medecin->gps_lat == 0.0000000000 || $medecin->gps_lng == 0.0000000000) {
 
@@ -95,95 +101,25 @@ class MedecinController extends Controller
 
                     $response = json_decode($response_json, true);
 
-                    /*Saving the gps_coord*/
+                    /*Saving the gps_coord and if they exist*/
 
-                    //Latitude
-                    $medecin->gps_lat = $response["features"][0]["geometry"]["coordinates"][1];
-                    //Longitude
-                    $medecin->gps_lng = $response["features"][0]["geometry"]["coordinates"][0];
+                    if ($response["features"]) {
 
-                    $medecin->save();
+                        //Latitude
+                        $medecin->gps_lat = $response["features"][0]["geometry"]["coordinates"][1];
+                        //Longitude
+                        $medecin->gps_lng = $response["features"][0]["geometry"]["coordinates"][0];
+
+                        $medecin->save();
+                    }
                 }
             }
-
 
             $count_medecins = count($nb_medecins);
             $specialities = Speciality::orderBy('speciality_name', 'asc')->get();
 
             return view('liste_medecins', compact('specialities', 'medecins', 'result_speciality', 'result_city', 'count_medecins'));
         }
-    }
-
-    public function store_medecin(Request $request)
-    {
-
-
-        $request->validate([
-            'medecin_first_name' => 'required|',
-            'medecin_last_name' => 'required',
-            'city' => 'required',
-            'zip_code' => 'required',
-            'address' => 'required',
-            'phone' => 'required',
-            'speciality' => 'required',
-            'gps_lat' => 'required',
-            'gps_lng' => 'required',
-            'validation_status_medecin' => 'required',
-            'user_id' => 'required',
-        ]);
-
-        /* CAPITALIZE FIRST AND LAST NAME */
-
-        $datas = $request->all();
-        $datas["medecin_first_name"] = strtoupper($request->medecin_first_name);
-        $datas["medecin_last_name"] = strtoupper($request->medecin_last_name);
-
-        Medecin::create($datas);
-
-        return redirect('/form_review_medecin');
-    }
-
-    public function form_review_medecin()
-    {
-        $user = Auth::User();
-        $user_id = $user->id;
-
-
-        User::where('id', $user_id)->update([
-            'nb_reviews_waiting' => DB::raw('nb_reviews_waiting+1'),
-        ]);
-
-        $medecin_just_created = Medecin::all()->where('user_id', '=', $user_id)
-            ->last();
-
-        $placeholder_review = "Ecrivez ici...";
-
-        return view('form.create_review_medecin', compact('user', 'medecin_just_created', 'placeholder_review'));
-    }
-
-    public function review_medecin_store(Request $request)
-    {
-
-        $request->validate([
-
-            'review' => 'required|',
-            'date_rdv' => 'required',
-            'user_id' => 'required',
-            'validation_status_review' => 'required',
-            'medecin_id' => 'required',
-
-        ]);
-
-        $datas = $request->all();
-        Review::create($datas);
-
-        return redirect('/compte')->with('message', 'Votre soumission a bien été envoyée aux modérateurs ! Elle est désormais en attente et sera validée ou rejetée dans les plus brefs délais !');
-    }
-
-    public function bac_a_sable()
-    {
-        $medecins = Medecin::paginate(2);
-        return view('bac_a_sable', compact('medecins'));
     }
 
     public function back_to_liste_medecins($city, $speciality)
@@ -224,4 +160,7 @@ class MedecinController extends Controller
             return view('liste_medecins', compact('specialities', 'medecins', 'result_speciality', 'result_city', 'count_medecins'));
         }
     }
+
+    
+
 }

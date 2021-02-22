@@ -21,14 +21,20 @@ class CompteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function __construct() 
+    {
+        $this->middleware('auth');
+    }     
+
+    public function accueil_compte()
     {
         $user = Auth::User();
         return view('compte.accueil_compte', compact('user'));
     }
 
 
-    public function create()
+    public function create_medecin()
     {
         $user = Auth::User();
         $specialities = Speciality::orderBy('speciality_name', 'asc')->get();
@@ -115,11 +121,73 @@ class CompteController extends Controller
                 'nb_reviews_waiting' => DB::raw('nb_reviews_waiting+1'),
             ]);
 
-            return redirect('/compte')->with('message', 'Votre soumission a bien été envoyée aux modérateurs ! Elle est désormais en attente et sera validée ou rejetée dans les plus brefs délais !');
+            return redirect('/accueil_compte')->with('message', 'Votre soumission a bien été envoyée aux modérateurs ! Elle est désormais en attente et sera validée ou rejetée dans les plus brefs délais !');
 
             // Si l'utilisateur a déjà une review -> message d'erreur
         } else {
-            return redirect('/compte')->with('review_error', 'Vous avez déjà posté un commentaire sur ce médecin !');
+            return redirect('/accueil_compte')->with('review_error', 'Vous avez déjà posté un commentaire sur ce médecin !');
         }
+    }
+
+    public function add_medecin(Request $request)
+    {
+        $request->validate([
+            'medecin_first_name' => 'required',
+            'medecin_last_name' => 'required',
+            'speciality' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'zip_code' => 'required',
+            'phone' => 'required',
+            'gps_lat' => 'required',
+            'gps_lng' => 'required',
+            'validation_status_medecin' => 'required',
+            'user_id' => 'required',
+        ]);
+
+        /* CAPITALIZE FIRST AND LAST NAME */
+
+        $datas = $request->all();
+        $datas["medecin_first_name"] = strtoupper($request->medecin_first_name);
+        $datas["medecin_last_name"] = strtoupper($request->medecin_last_name);
+        $datas["city"] = strtoupper($request->city);
+
+        Medecin::create($datas);
+
+        return redirect('/form_review_medecin');
+    }
+
+    public function review_medecin_store(Request $request)
+    {
+
+        $request->validate([
+            'review' => 'required|',
+            'date_rdv' => 'required',
+            'user_id' => 'required',
+            'validation_status_review' => 'required',
+            'medecin_id' => 'required',
+        ]);
+
+        $datas = $request->all();
+        Review::create($datas);
+
+        return redirect('/accueil_compte')->with('message', 'Votre soumission a bien été envoyée aux modérateurs ! Elle est désormais en attente et sera validée ou rejetée dans les plus brefs délais !');
+    }
+
+    public function form_review_medecin()
+    {
+        $user = Auth::User();
+        $user_id = $user->id;
+
+        User::where('id', $user_id)->update([
+            'nb_reviews_waiting' => DB::raw('nb_reviews_waiting+1'),
+        ]);
+
+        $medecin_just_created = Medecin::all()->where('user_id', '=', $user_id)
+            ->last();
+
+        $placeholder_review = "Ecrivez ici...";
+
+        return view('form.create_review_medecin', compact('user', 'medecin_just_created', 'placeholder_review'));
     }
 }

@@ -54,7 +54,7 @@
                 <div>
                     <a class="btn btn-primary p_texte_1 text-white mr-4" href="{{ url('/') }}">
                         <img src="{{ asset('img/stethoscope.png') }}" alt="" class="icon_img">
-                        AubonMédecin.com
+                        aubonmedecin.com
                     </a>
                 </div>
             </div>
@@ -62,14 +62,14 @@
                 <div class="d-flex justify-content-around align-items-center">
                     <div class="d-flex">
                         <div class="btn_accueil">
-                            <a class="btn btn-primary p_texte_1 text-white mr-4" href="{{ route('admin.index') }}"><img
+                            <a class="btn btn-primary p_texte_1 text-white mr-4" href="{{ route('admin_dashboard') }}"><img
                                     src="{{ asset('img/avatar_admin.png') }}" alt="" class="icon_img mr-1">Administration du site</a>
                         </div>
                     </div>
                     <div class="d-flex">
                         <div>
-                            <a class="btn btn-primary p_texte_1 text-white mr-4" href="{{ route('accueil') }}">
-                                <img src="{{ asset('img/logout.jpg') }}" alt="" class="icon_img">Déconnexion
+                            <a class="btn btn-primary p_texte_1 text-white mr-4" href="{{ route('admin_logout') }}">
+                                <img src="{{ asset('img/logout.jpg') }}" alt="" class="icon_img"> Déconnexion
                             </a>
                         </div>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
