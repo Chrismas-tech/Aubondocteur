@@ -49,13 +49,55 @@
                             <div class="card-body text-black p-2 p-lg-2 m-0">
                                 <div class="alert alert-success p-sm-2 p-lg-4 m-0" role="alert">
                                     <div class="card p-3 domine text-dark">
+
                                         <div class="d-flex align-items-center p-texte mt-2 mb-4">
                                             <img src="{{ asset('img/medecin-icon.png') }}" alt=""
                                                 class="icon_info_docteur media_icon_profile_medecin">
                                             <h3 class="p-0 m-0 lora ml-2 media_name_medecin">
-                                                {{ $medecin->medecin_first_name }} {{ $medecin->medecin_last_name }}
+                                                {{ $medecin->medecin_name }}
                                             </h3>
                                         </div>
+
+
+                                        <div class="d-flex align-items-center mt-2 mb-2">
+                                            <img src="{{ asset('img/job-status.png') }}" alt=""
+                                                class="icon_info media_icon_info_medecin">
+                                            <h6 class=" p-0 m-0 roboto ml-2 media_address_medecin">
+                                                @if ($medecin->job_status)
+                                                    {{ $medecin->job_status }}
+                                                @else
+                                                    Adresse inconnue
+                                                @endif
+                                            </h6>
+                                        </div>
+
+
+                                        <div class="d-flex align-items-center mt-2 mb-2">
+                                            <img src="{{ asset('img/sector.png') }}" alt=""
+                                                class="icon_info media_icon_info_medecin">
+                                            <h6 class=" p-0 m-0 roboto ml-2 media_address_medecin">
+                                                @if ($medecin->sector)
+                                                    {{ $medecin->sector }}
+                                                @else
+                                                    Adresse inconnue
+                                                @endif
+                                            </h6>
+                                        </div>
+
+
+                                        <div class="d-flex align-items-center mt-2 mb-2">
+                                            <img src="{{ asset('img/carte-vitale.png') }}" alt=""
+                                                class="icon_vital_card media_icon_info_medecin">
+                                            <h6 class=" p-0 m-0 roboto ml-2 media_address_medecin">
+                                                @if ($medecin->vitale_card)
+                                                    {{ $medecin->vitale_card }}
+                                                @else
+                                                    Adresse inconnue
+                                                @endif
+                                            </h6>
+                                        </div>
+
+                                        <br>
 
                                         <div class="d-flex align-items-center mt-2 mb-2">
                                             <img src="{{ asset('img/address.png') }}" alt=""
