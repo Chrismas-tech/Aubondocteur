@@ -70,14 +70,17 @@
                     </div>
 
                     <div class="d-flex justify-content-center mt-3">
-                        <div class="g-recaptcha" data-sitekey="6LdD7mQaAAAAAK9-nl4IvvGHMAd2wu2AYpsKzk71">
-                            @if ($errors->has('g-recaptcha-response'))
-                            <div class="invalid-feedback" role="alert">
-                                <strong>Vous devez cliquer sur le captcha</strong>
-                            </div>
-                            @endif
+                        <div class="g-recaptcha" data-sitekey="6Lc772QaAAAAANbFVholjUJylbRyJkXcnDpGplR6">
                         </div>
                     </div>
+                    <div class="d-flex justify-content-center">
+                        @if ($errors->has('g-recaptcha-response'))
+                            <div class="text-danger" role="alert">
+                                <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                            </div>
+                        @endif
+                    </div>
+
 
 
                     <div class="text-center mt-3">
