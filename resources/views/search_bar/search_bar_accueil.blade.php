@@ -16,7 +16,7 @@
 
     <div class="search_bar_flex_basis_2">
         <input name="input_search_accueil" type="text" id="input_search_accueil" class="form-control"
-            placeholder="{{ Request::get('input_search_accueil') ? Request::get('input_search_accueil') : 'Recherchez une ville ou un code postal' }}" value="{{ Request::get('input_search_accueil') ? Request::get('input_search_accueil') :'' }}">
+            placeholder="{{ Request::get('input_search_accueil') ? Request::get('input_search_accueil') : 'Recherchez une ville ou un code postal' }}" value="{{ Request::get('input_search_accueil') ? Request::get('input_search_accueil') :'' }}" autocomplete="off">
 
         <div id="city_list" class="text-left"></div>
         @csrf
