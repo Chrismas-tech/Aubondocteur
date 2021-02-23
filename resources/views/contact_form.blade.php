@@ -69,7 +69,7 @@
                         </div>
                     </div>
 
-                    <div  class="d-flex justify-content-center mt-3">
+                    <div class="d-flex justify-content-center mt-3">
                         <div class="g-recaptcha" data-sitekey="6Lc772QaAAAAANbFVholjUJylbRyJkXcnDpGplR6">
                             @if ($errors->has('g-recaptcha-response'))
                             <div class="invalid-feedback" role="alert">
