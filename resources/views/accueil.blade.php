@@ -11,7 +11,7 @@
                 <div class="text-left">
                     <p class="lead lora p_texte_1 lobster mt-5 mb-5 media_info_welcome_page">Sur notre plateforme <span class="bold">aubondocteur.com</span>, consultez les avis positifs sur vos praticiens et trouvez en un rapidement près de chez vous !</p>
                 </div>
-
+ 
                 <hr>
 
                 <div class="text-center mt-5 mb-4">
