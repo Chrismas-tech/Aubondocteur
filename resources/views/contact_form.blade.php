@@ -72,9 +72,9 @@
                     <div  class="d-flex justify-content-center mt-3">
                         <div class="g-recaptcha" data-sitekey="6Lc772QaAAAAANbFVholjUJylbRyJkXcnDpGplR6">
                             @if ($errors->has('g-recaptcha-response'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
-                                </span>
+                            <div class="invalid-feedback" role="alert">
+                                <strong>Vous devez cliquer sur le captcha</strong>
+                            </div>
                             @endif
                         </div>
                     </div>
