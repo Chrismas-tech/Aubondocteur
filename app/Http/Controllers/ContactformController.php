@@ -13,7 +13,7 @@ class ContactformController extends Controller
         return view('contact_form');
     }
 
-    public function contact_form_send()
+    public function contact_form_send(Request $request)
     {
         $request->validate([
             'name' => 'required|',
