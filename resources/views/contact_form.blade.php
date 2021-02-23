@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('extra-js')
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+@endsection
 @section('content')
 
     <div class="jumbotron text-primary bg_photo_3 min_height m-0 d-flex justify-content-center">
@@ -67,15 +69,26 @@
                         </div>
                     </div>
 
+                    <div class="d-flex justify-content-center mt-3">
+                        <div class="g-recaptcha" data-sitekey="6Lc772QaAAAAANbFVholjUJylbRyJkXcnDpGplR6">
+                            @if ($errors->has('g-recaptcha-response'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+
                     <div class="text-center mt-3">
                         <div>
                             <button type="submit" class="btn btn-primary btn-lg">
                                 Envoyer le message
                             </button>
                         </div>
+                    </div>
                 </form>
             </div>
         </div>
-    </div>
     </div>
 @endsection

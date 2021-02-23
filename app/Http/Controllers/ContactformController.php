@@ -15,11 +15,18 @@ class ContactformController extends Controller
 
     public function contact_form_send()
     {
-        $data = request()->validate([
+        $request->validate([
             'name' => 'required|',
             'email' => 'required|email',
             'message' => 'required|',
+            'g-recaptcha-response' => 'required|captcha',
         ]);
+
+        $data = [
+            'name' => 'required|',
+            'email' => 'required|email',
+            'message' => 'required|',
+        ];
 
         Mail::to('ichrisinfo@gmail.com')->send(new ContactMail($data));
         return redirect()->back()->with('message', 'Votre message a bien été envoyé à l\'administrateur !');
