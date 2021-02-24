@@ -20,10 +20,9 @@ class ContactformController extends Controller
             'name' => 'required|',
             'email' => 'required|email',
             'message' => 'required|',
-            'g-recaptcha-response' => 'required|captcha',
+            'g-recaptcha-response' => 'required|',
         ]);
- 
-        dd('yolo');
+
         $data = [
             'name' => 'required|',
             'email' => 'required|email',

@@ -28,7 +28,6 @@
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 
     <!-- JQuery && AXIOS && AJAX-->
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js" rel="stylesheet">
