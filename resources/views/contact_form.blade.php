@@ -73,6 +73,7 @@
                         <div class="g-recaptcha" data-sitekey="6LdD7mQaAAAAAK9-nl4IvvGHMAd2wu2AYpsKzk71">
                         </div>
                     </div>
+                    
                     <div class="d-flex justify-content-center">
                         @if ($errors->has('g-recaptcha-response'))
                             <div class="text-danger" role="alert">

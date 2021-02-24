@@ -18,15 +18,15 @@ class ContactformController extends Controller
 
         $request->validate([
             'name' => 'required|',
-            'email' => 'required|email',
+            'email' => 'required|',
             'message' => 'required|',
             'g-recaptcha-response' => 'required|',
         ]);
 
         $data = [
-            'name' => 'required|',
-            'email' => 'required|email',
-            'message' => 'required|',
+            'name' => $request->name,
+            'email' => $request->email,
+            'message' => $request->message,
         ];
 
 
