@@ -117,7 +117,7 @@
                     @endif
 
                     <!-- Si l'utilisateur n'a aucun commentaire en attente et aucun commentaire validé -->
-                    @if ($user->nb_reviews_waiting == 0 && $user->nb_reviews_validated == 0 && && $user->nb_reviews_refused == 0)
+                    @if ($user->nb_reviews_waiting == 0 && $user->nb_reviews_validated == 0 && $user->nb_reviews_refused == 0)
                         <p class="mq_txt_light display-5 lora mb-5 p-0">Vous n'avez pas encore publié de commentaires pour
                             le moment !
                         </p>
