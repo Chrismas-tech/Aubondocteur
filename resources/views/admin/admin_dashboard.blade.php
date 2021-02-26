@@ -152,7 +152,7 @@
                                     </td>
 
 
-                                    <form action="/admin/{{ $user_single->id }}" method="POST">
+                                    <form action="compte_destroy/{{ $user_single->id }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <td class="text-center"><button type="submit" class="btn btn-danger ">Supprimer
