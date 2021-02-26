@@ -27,7 +27,6 @@
             <table class="table table-striped bg-white table-white border">
                 <thead>
                     <tr>
-                        <th scope="col" class="bg-danger p_texte_2 text-white p-3 border">Prénom</th>
                         <th scope="col" class="bg-danger p_texte_2 text-white p-3 border">Nom</th>
                         <th scope="col" class="bg-danger p_texte_2 text-white p-3 border">Spécialité</th>
                         <th scope="col" class="bg-danger p_texte_2 text-white p-3 border">Adresse</th>
@@ -39,10 +38,7 @@
                     @foreach ($medecin_status_refused as $medecin)
                         <tr>
                             <td class="border align-middle text-center font-weight-bold p-2">
-                                {{ $medecin->medecin_first_name }}
-                            </td>
-                            <td class="border align-middle text-center font-weight-bold p-2">
-                                {{ $medecin->medecin_last_name }}
+                                {{ $medecin->medecin_name }}
                             </td>
                             <td class="border align-middle text-center lora p-2 p_texte_2 ">{{ $medecin->speciality }}</td>
                             <td class="border align-middle p-2">{{ $medecin->address }}</td>

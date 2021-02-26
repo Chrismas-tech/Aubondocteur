@@ -27,7 +27,6 @@
                 <table class="table table-striped bg-white table-white border">
                     <thead>
                         <tr>
-                            <th scope="col" class="bg-warning p_texte_2 text-dark p-3 border">Prénom</th>
                             <th scope="col" class="bg-warning p_texte_2 text-dark p-3 border">Nom</th>
                             <th scope="col" class="bg-warning p_texte_2 text-dark p-3 border">Spécialité</th>
                             <th scope="col" class="bg-warning p_texte_2 text-dark p-3 border">Adresse</th>
@@ -39,7 +38,7 @@
                         @foreach ($medecin_status_waiting as $medecin)
                             <tr>
                                 <td class="border align-middle text-center font-weight-bold p-2">
-                                    {{ $medecin->medecin_first_name }}</td>
+                                    {{ $medecin->medecin_name }}</td>
                                 <td class="border align-middle text-center font-weight-bold p-2">
                                     {{ $medecin->medecin_last_name }}</td>
                                 <td class="border align-middle text-center lora p-2 p_texte_2 ">{{ $medecin->speciality }}
