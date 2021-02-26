@@ -102,7 +102,7 @@ class AdminController extends Controller
         $medecin_count_refused = $medecin_status_refused->count();
         $medecin_count_waiting = $medecin_status_waiting->count();
 
-        $specialities = Speciality::orderBy('speciality_name', 'asc')->get();
+        $specialities = Speciality::orderBy('speciality', 'asc')->get();
 
         return view('admin.gestionnaire', compact(
             'review_count_validated',
