@@ -6,24 +6,28 @@
 
             <select type="text" name="select_accueil" id="select_accueil" class="form-control">
                 <option id="media_queries_option">Spécialité du médecin</option>
+
                 @foreach ($specialities as $speciality)
-                    <option @if (Request::get('select_accueil') == $speciality->speciality) selected @endif value="{{ $speciality->speciality }}">
-                        {{ $speciality->speciality }}
-                    </option>
+                    <p>{{ Request::get('select_accueil') }}</p>
+                    <p>{{ $speciality->speciality }}</p>
+                    <option value="{{ $speciality->speciality }}" @if (Request::get('select_accueil') == $speciality->speciality) selected @endif >{{ $speciality->speciality }}</option>
                 @endforeach
+
             </select>
     </div>
 
     <div class="search_bar_flex_basis_2">
         <input name="input_search_accueil" type="text" id="input_search_accueil" class="form-control"
-            placeholder="{{ Request::get('input_search_accueil') ? Request::get('input_search_accueil') : 'Recherchez une ville ou un code postal' }}" value="{{ Request::get('input_search_accueil') ? Request::get('input_search_accueil') :'' }}" autocomplete="off">
+            placeholder="{{ Request::get('input_search_accueil') ? Request::get('input_search_accueil') : 'Recherchez une ville ou un code postal' }}"
+            value="{{ Request::get('input_search_accueil') ? Request::get('input_search_accueil') : '' }}"
+            autocomplete="off">
 
         <div id="city_list" class="text-left"></div>
         @csrf
     </div>
 
     <div class="search_bar_flex_basis_3">
-        <button type="submit" style="outline:none;" class="bg-gray mb-3" id="input_accueil_button"><img class="loupe"
+        <button type="submit" style="outline:none;" class="bg_green mb-3" id="input_accueil_button"><img class="loupe "
                 src="{{ asset('img/loupe-1.png') }}"></button>
     </div>
     </form>
@@ -82,7 +86,6 @@
 </div>
 
 <script>
-
     /* REQUETE AJAX BDD POUR AFFICHER LES VILLES EN AUTOCOMPLETION */
     $('document').ready(function() {
 
@@ -116,19 +119,9 @@
             $('#input_search_accueil').val($(this).text());
             $('#city_list').fadeOut();
 
-            if ($('#input_search_accueil').val().length > 2 && $('#select_accueil').val()) {
-
-                $('#input_accueil_button').removeClass('bg-gray');
-                $('#input_accueil_button').addClass('bg_green');
-
-            } else {
-
-                $('#input_accueil_button').removeClass('bg_green');
-                $('#input_accueil_button').addClass('bg-gray');
-            }
         });
 
-        
+
         /* SI ON CLIQUE EN DEHORS LA LISTE DES VILLES DISPARAIT */
         $("body").click(function() {
             $('#city_list').empty();

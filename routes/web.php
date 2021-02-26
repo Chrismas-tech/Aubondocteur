@@ -173,3 +173,4 @@ Route::patch('/review_refuse_to_waiting/{review_id}/{user_id}', 'AdminController
 Route::get('/geo_gouv', 'ApiController@geo_gouv')->name('geo_gouv');
 Route::get('/opendatasoft', 'ApiController@opendatasoft')->name('opendatasoft');
 Route::get('/page_opendatasoft', 'ApiController@page_opendatasoft')->name('page_opendatasoft');
+Route::get('/bdd_name', 'ApiController@bdd_name')->name('bdd_name');

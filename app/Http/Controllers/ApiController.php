@@ -124,6 +124,21 @@ class ApiController extends Controller
             $record_nom_acte = $field['fields']['nom_acte'];
         }
     }
+
+    public function bdd_name()
+    {
+        $medecins = Medecin::all();
+
+        foreach ($medecins as $medecin) {
+            $medecin_non_correct = $medecin->medecin_name;
+            $medecin_inverse_name = explode(" ", $medecin_non_correct);
+            
+            if (count($medecin_inverse_name) > 6) {
+                dd($medecin->medecin_name);
+            }
+
+     }
+    }
 }
 
 /*  
