@@ -94,7 +94,7 @@
                         </div>
                         <div class="d-flex justify-content-between">
                             <p class="mq_comment_txt card-text alert alert-danger mt-2 mb-3 p-1">Commentaires refusés par
-                                nos modérateurs : {{ $user->nb_reviews_waiting }}
+                                nos modérateurs : {{ $user->nb_reviews_refused }}
                             </p>
                         </div>
                     </div>

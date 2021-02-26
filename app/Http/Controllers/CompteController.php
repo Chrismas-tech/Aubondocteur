@@ -101,7 +101,7 @@ class CompteController extends Controller
         $user_id = auth()->user()->id;
         $medecin_id = $request->medecin_id;
 
-        $reviews_of_user = Review::where('medecin_id', '=', $medecin_id)
+        $reviews_of_user = Review::where('medecin_id', $medecin_id)
             ->where('user_id', '=', $user_id)->get();
 
         //AFIN D'EMPECHER LE RE-ENVOI D'UNE REVIEW VIA LE BOUTON RETOUR, ON DOIT VERIFIER SI L'UTILISATEUR POSSEDE UNE REVIEW SUR LE MEDECIN
