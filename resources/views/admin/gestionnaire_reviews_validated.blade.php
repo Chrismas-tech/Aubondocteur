@@ -38,7 +38,7 @@
                                         Nom # {{ $review->user->name }}
                                     </td>
                                     <td class="border align-middle text-center font-weight-bold p-2 ">
-                                        Médecin : {{ $review->medecin->medecin_first_name }}
+                                        Médecin : {{ $review->medecin->medecin_name }}
                                         {{ $review->medecin->medecin_last_name }} <br>
                                         {{ $review->medecin->speciality }}
                                     </td>
