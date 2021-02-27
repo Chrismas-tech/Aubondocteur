@@ -6,6 +6,14 @@
 
         <div class="mq_width" style="margin:auto">
 
+            <div class="mb-5 mq_margin_bottom">
+                <a class="mq_margin_bottom btn btn-primary p_texte_1 text-white mr-4 media_button_welcome_page_nav"
+                    href="{{ url('/') }}">
+                    Retourner à l'accueil
+                    <img src="{{ asset('img/arrow_right.png') }}" alt="" class="icon_img media_icon_nav">
+                </a>
+            </div>
+
             <div>
                 <div>
                     <h1 class="mq_title_first_title display-5 lobster bg-white py-3 px-3 rounded mb-5">Bienvenue sur votre
@@ -13,6 +21,8 @@
                         {{ $user->name }} !
                     </h1>
                 </div>
+
+
 
                 @if (session()->has('password_modified'))
                     <div class="alert alert-success" role="alert">
@@ -35,14 +45,14 @@
             </div>
 
             <div class=" d-lg-flex justify-content-between">
-                
+
                 <div class="col-12 col-lg-4 p-3 card mr-4 opacity_1 col-4 mb-5">
                     <div>
 
                         <div>
-                            <h5 class="mq_title_col_left card-title lobster p_texte_1 mb-4">Vos informations de compte</h5>
-                            <p class="card-text m-0 p-0">Name : {{ $user->name }}</p>
-                            <p class="card-text m-0 p-0"> Email : {{ $user->email }}</p>
+                            <p class="mq_title_col_left card-title lobster p_texte_1 mb-4">Vos informations de compte</p>
+                            <h4 class="card-text m-0 p-0">Nom : {{ $user->name }}</h4>
+                            <h4 class="card-text m-0 p-0"> Email : {{ $user->email }}</h4>
                         </div>
 
 
@@ -186,9 +196,9 @@
 
                                         @error('current_password')
                                             <p class="text-danger"">{{ $message }}</p>
-                                                    @enderror
+                                                                        @enderror
 
-                                                    <div class=" input-group-lg mb-3">
+                                                                        <div class=" input-group-lg mb-3">
                                             <label for="new_password">Votre nouveau mot de passe</label>
 
                                             <input id="new_password" type="password"
@@ -210,7 +220,7 @@
 
                                 @error('new_confirm_password')
                                     <p class="text-danger"">{{ $message }}</p>
-                                            @enderror                                                                        <div class="
+                                                                @enderror                                                                        <div class="
                                     text-right">
                                     <button type=" submit" class="btn btn-primary">Modifier le mot de passe<button>
                             </div>

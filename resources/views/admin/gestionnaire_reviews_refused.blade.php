@@ -8,7 +8,7 @@
                 <div class="text-center d-flex justify-content-center">
                     <h1 class="display-4 lobster bg-white p-2 rounded">Il n'y a pas de résultat pour le moment...</h1>
                 </div>
-         
+
 
                 <div class="d-flex justify-content-center p_texte_2 mt-4">
                     {{ $review_status_refused->links() }}
@@ -17,7 +17,7 @@
                 <div class="text-center">
                     <a href="{{ route('gestionnaire') }}" class="btn btn-lg btn-primary">Revenir au gestionnaire</a>
                 </div>
-                @else
+            @else
 
 
                 <div class="d-flex justify-content-between flex-wrap p-4">
@@ -41,8 +41,9 @@
                                         Nom # {{ $review->user->name }}
                                     </td>
                                     <td class="border align-middle text-center font-weight-bold p-2 ">
-                                        Médecin : {{ $review->medecin->medecin_name }}
-                                        {{ $review->medecin->medecin_last_name }} <br>
+                                        Médecin :{{ $review->medecin->medecin_last_name }}
+                                        {{ $review->medecin->medecin_first_name }}
+                                        <br>
                                         {{ $review->medecin->speciality }}
                                     </td>
                                     <td class="border align-middle text-center p-2 ">

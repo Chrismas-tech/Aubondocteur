@@ -46,7 +46,8 @@ class MedecinController extends Controller
         $medecins = Medecin::where('speciality', $result_speciality)
             ->where('city', 'LIKE', $city_uppercase . '%')
             ->where('validation_status_medecin', 1)
-            ->orderBy('medecin_name', 'asc')
+            ->wherenotNull('medecin_last_name')
+            ->orderBy('medecin_last_name', 'asc')
             ->paginate(25);
             
         $nb_medecins = Medecin::where('speciality', $result_speciality)

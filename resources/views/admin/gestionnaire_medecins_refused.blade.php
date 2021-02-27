@@ -38,8 +38,9 @@
                     @foreach ($medecin_status_refused as $medecin)
                         <tr>
                             <td class="border align-middle text-center font-weight-bold p-2">
-                                {{ $medecin->medecin_name }}
-                            </td>
+                                {{ $medecin->medecin_last_name }}</td>
+                            <td class="border align-middle text-center font-weight-bold p-2">
+                                {{ $medecin->medecin_first_name }}</td>
                             <td class="border align-middle text-center lora p-2 p_texte_2 ">{{ $medecin->speciality }}</td>
                             <td class="border align-middle p-2">{{ $medecin->address }}</td>
                             <td class="border align-middle text-center p-2">{{ $medecin->phone }}</td>

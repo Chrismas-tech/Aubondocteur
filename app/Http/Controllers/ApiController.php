@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Medecin;
+use App\MedecinOld;
+use App\MedecinsOld;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\Cast\Array_;
+use simple_html_dom;
+
+include('SimpleHtmlDomController.php');
 
 class ApiController extends Controller
 {
@@ -128,51 +134,147 @@ class ApiController extends Controller
     public function bdd_name()
     {
         $medecins = Medecin::all();
+        $medecins_old = MedecinsOld::all();
+
+        /* Pour tous les médecins de la nouvelle base de données */
+        foreach ($medecins as $medecin) {
+
+            $address = $medecin->address;
+            $city = $medecin->city;
+
+            foreach ($medecins_old as $medecin_old) {
+
+                /* Dans l'ancienne base de donnée on recherche tous les médecins qui ont une adresse et une ville identique */
+                if (($medecin_old->city == $city) && ($medecin_old->address == $address)) {
+
+                    /* Si le nom de famille de l'ancienne base de donné est inclut dans la nouvelle base de donnée, on remplit les champs last et first name */
+
+                    if (strpos($medecin->medecin_name, $medecin_old->medecin_last_name) == true) {
+
+                        if ($medecin_old->email != "") {
+                            $medecin->email = $medecin_old->email;
+                            $medecin->save();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public function inverse_name()
+    {
+        $medecins = Medecin::whereNull('medecin_last_name')->whereNull('medecin_first_name')->get();
+
+        /* Pour tous les médecins de la nouvelle base de données */
+        foreach ($medecins as $medecin) {
+
+            $entire_name = $medecin->medecin_name;
+            $pieces_entire_name = explode(" ", $entire_name);
+
+            $medecin_real_first_name = $pieces_entire_name[0];
+            $medecin_real_last_name = $pieces_entire_name[1];
+
+            /* Si le nom et le prénom ne représentent que deux mots */
+            if (count($pieces_entire_name) == 2) {
+
+                $medecin->medecin_first_name = $medecin_real_first_name;
+                $medecin->medecin_last_name = $medecin_real_last_name;
+                $medecin->save();
+            }
+        }
+    }
+
+    public function count_name_null()
+    {
+        $medecins = Medecin::whereNull('medecin_last_name')->whereNull('medecin_first_name')->get();
+
+        $nb = $medecins->count();
+        return view('null', compact('nb'));
+    }
+
+    public function find_name()
+    {
+        $medecins = Medecin::whereNull('medecin_last_name')->whereNull('medecin_first_name')->where('medecin_name', 'like', 'MARIE PIERRE%')->get();
+
+        dd($medecins);
+        //$nb_result = [];
 
         foreach ($medecins as $medecin) {
-            $medecin_non_correct = $medecin->medecin_name;
-            $medecin_inverse_name = explode(" ", $medecin_non_correct);
-            
-            if (count($medecin_inverse_name) > 6) {
-                dd($medecin->medecin_name);
-            }
 
-     }
+            $entire_name = $medecin->medecin_name;
+            $pieces_entire_name = explode(" ", $entire_name);
+
+            if (count($pieces_entire_name) == 3) {
+
+                //array_push($nb_result, $medecin->medecin_name);
+
+                //$medecin_real_first_name_1 = $pieces_entire_name[0];
+                //$medecin_real_first_name_2 = $pieces_entire_name[1];
+                $medecin_real_last_name = $pieces_entire_name[1] . ' ' . $pieces_entire_name[2];
+                $medecin_real_first_name = $pieces_entire_name[0];
+
+                $medecin->medecin_name = $medecin_real_last_name . ' ' . $medecin_real_first_name;
+                $medecin->medecin_first_name = $medecin_real_first_name;
+                $medecin->medecin_last_name = $medecin_real_last_name;
+                $medecin->save();
+            }
+        }
+    }
+
+    public function city_problem_tiret()
+    {
+        $cities = Medecin::select('city')->distinct()->get();
+
+        foreach ($cities as $city) {
+
+            //dd($city->city);
+
+            /* Si la ville contient un tiret */
+            if (strpos($city->city, '-') == true) {
+
+                //dd($city->city);
+
+                $this_city_without_tiret = str_replace('-', ' ', $city->city);
+                //dd($this_city_without_tiret);
+
+                $city_without_tiret = Medecin::where('city', $this_city_without_tiret)->get();
+
+                /* Si la ville existe aussi sans tiret*/
+                if (!$city_without_tiret->isEmpty()) {
+
+                    foreach ($city_without_tiret as $city_w_t) {
+
+                        //dd($city->city);
+                        //dd($city_w_t->city);
+                        $city_w_t->city = $city->city;
+                        $city_w_t->save();
+                    }
+                }
+            }
+        }
+    }
+
+    public function search_web()
+    {
+        $query = 'nathalie fenioux gavard doctolib';
+
+        /*On remplace tous les espaces par des +*/
+        $query_without_spaces = strtr($query, ' ', "+");
+        $url = "https://www.google.com/search?q=nathalie+fenioux+gavard";
+
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+        $result = curl_exec($curl);
+        curl_close($curl);
+
+        $dom_results = new simple_html_dom();
+        $dom_results->load($result);
+
+        foreach ($dom_results->find('div.aCOpRe') as $link) {
+            dd('yolo');
+            dd($link->plaintext);
+        }
     }
 }
-
-/*  
-
-      "column_20" => 125.4
-      "column_21" => 232.9
-      "type_dacte_realise" => "Acte technique"
-      "tarif_2" => "250.8"
-      "code_epci" => 200039915
-      "nom" => "MARTINA LUCIANI"
-      "nom_acte" => "Traitement des calculs du rein et des voies urinaires,"
-      "nom_epci" => "CA Cannes Pays de Lérins"
-      "adresse" => "CABINET DU DR MARTINA LUCIANI CLINIQUE DE L ESPERANCE 122 AVENUE DU DOCTEUR MAURICE DONAT  06250 MOUGINS"
-      "column_9" => "MOUGINS"
-      "nom_dep" => "ALPES-MARITIMES"
-      "column_13" => "Libéral intégral"
-      "libelle_profession" => "Anesthésiste réanimateur"
-      "column_10" => "04.97.16.69.10"
-      "column_17" => "JANM0020"
-      "column_16" => "Lecteur de carte Sesam Vitale"
-      "column_15" => "N"
-      "column_14" => "Secteur 2, Pas de contrat d'accès aux soins"
-      "column_19" => 232.9
-      "column_18" => 210
-      "coordonnees" => array:2 [▶]
-      "insee_dep" => "06"
-      "concat" => "MARTINA LUCIANICABINET DU DR MARTINA LUCIANI CLINIQUE DE L ESPERANCE 122 AVENUE DU DOCTEUR MAURICE DONAT  06250 MOUGINS"
-      "tarif_1" => "250.8"
-      "commune" => "Mougins"
-      "column_11" => 3
-      "tarif_base_de_remboursement_securite_sociale" => 250.8
-      "civilite" => "Femme"
-    ]
-    "geometry" => array:2 [▶]
-    "record_timestamp" => "2021-02-01T22:00:04.169000+00:00"
-  ]
-*/
