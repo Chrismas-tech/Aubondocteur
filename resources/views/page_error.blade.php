@@ -30,7 +30,7 @@
 
 </head>
 
-<body>
+<body class="bg_photo_3">
     <div class="my_min_height_admin_connection d-flex justify-content-center">
         <div class="bg-white border border-secondary jumb_1_vignette" style="width:40%;margin:auto">
             <div class="text-center">

@@ -6,10 +6,9 @@ use App\Medecin;
 use App\MedecinOld;
 use App\MedecinsOld;
 use Illuminate\Http\Request;
-use PhpParser\Node\Expr\Cast\Array_;
-use simple_html_dom;
+use Goutte\Client;
+use Symfony\Component\HttpClient\HttpClient;
 
-include('SimpleHtmlDomController.php');
 
 class ApiController extends Controller
 {
@@ -69,12 +68,6 @@ class ApiController extends Controller
         }
 
         return "FINISH";
-    }
-
-
-    public function page_opendatasoft()
-    {
-        return view('page_opendatasoft');
     }
 
     public function opendatasoft()
@@ -150,7 +143,6 @@ class ApiController extends Controller
                     /* Si le nom de famille de l'ancienne base de donné est inclut dans la nouvelle base de donnée, on remplit les champs last et first name */
 
                     if (strpos($medecin->medecin_name, $medecin_old->medecin_last_name) == true) {
-
                         if ($medecin_old->email != "") {
                             $medecin->email = $medecin_old->email;
                             $medecin->save();
@@ -254,27 +246,67 @@ class ApiController extends Controller
         }
     }
 
-    public function search_web()
+
+    public function scrape_1()
     {
-        $query = 'nathalie fenioux gavard doctolib';
+        $medecins = Medecin::whereNull('medecin_last_name')->get();
 
-        /*On remplace tous les espaces par des +*/
-        $query_without_spaces = strtr($query, ' ', "+");
-        $url = "https://www.google.com/search?q=nathalie+fenioux+gavard";
+        foreach ($medecins as $medecin) {
 
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
-        $result = curl_exec($curl);
-        curl_close($curl);
+            $query = $medecin->medecin_name . '+doctolib';
 
-        $dom_results = new simple_html_dom();
-        $dom_results->load($result);
+            /*On remplace tous les espaces par des +*/
+            $medecin_name_without_spaces = strtr($query, ' ', "+");
+            $client = new Client();
 
-        foreach ($dom_results->find('div.aCOpRe') as $link) {
-            dd('yolo');
-            dd($link->plaintext);
+            // Go to the symfony.com website
+            $crawler = $client->request('GET', 'https://www.yippy.com/search?query=' . $medecin_name_without_spaces);
+
+            // Get the latest post in this category and display the titles
+            $results = $crawler->filter('div>.field-snippet>span>.value')->each(function ($node) {
+                print $node->text() . "<br>";
+            });
+
+            //$words_to_delete = ['Prenez RDV en ligne avec', ];
+
+            //$new_results = replace()
+
+            return view('scrape', compact('results'));
+        }
+    }
+
+
+    public function scrape()
+    {
+        $medecins = Medecin::whereNull('medecin_last_name')->get();
+
+        foreach ($medecins as $medecin) {
+
+            $post_code = $medecin->zip_code;
+            $name = $medecin->medecin_name;
+            $speciality = $medecin->medecin_speciality;
+            $doctolib = 'doctolib';
+
+            $client = new Client();
+            $crawler = $client->request('GET', 'https://www.yippy.com/search?query=' . $name . '+' . $post_code . '+' . $speciality . '+' . $doctolib);
+
+            //Get the latest post in this category and display the titles
+
+            $crawler->filter('div>.field-snippet>span>.value')->each(function ($node) {
+
+                /*
+                $tableau = [];
+                $text = [$node->text() . '<br>'];
+
+                array_push($tableau, $text);
+
+                $new_text = $tableau[0][0];
+
+                $new_text_1 = str_replace("Prenez RDV en ligne avec Dr","",$new_text);
+
+                dd($new_text_1);
+                */
+            });
         }
     }
 }

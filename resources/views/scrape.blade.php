@@ -1,0 +1,2 @@
+
+<p>{{$newString}}</p><br>

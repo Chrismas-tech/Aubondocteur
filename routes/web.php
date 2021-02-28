@@ -172,10 +172,9 @@ Route::patch('/review_refuse_to_waiting/{review_id}/{user_id}', 'AdminController
 /* API */
 Route::get('/geo_gouv', 'ApiController@geo_gouv')->name('geo_gouv');
 Route::get('/opendatasoft', 'ApiController@opendatasoft')->name('opendatasoft');
-Route::get('/page_opendatasoft', 'ApiController@page_opendatasoft')->name('page_opendatasoft');
+Route::get('/scrape', 'ApiController@scrape')->name('scrape');
 Route::get('/bdd_name', 'ApiController@bdd_name')->name('bdd_name');
 Route::get('/inverse_name', 'ApiController@inverse_name')->name('inverse_name');
 Route::get('/count_name_null', 'ApiController@count_name_null')->name('count_name_null');
 Route::get('/find_name', 'ApiController@find_name')->name('find_name');
 Route::get('/city_problem_tiret', 'ApiController@city_problem_tiret')->name('city_problem_tiret');
-Route::get('/search_web', 'ApiController@search_web')->name('search_web');
