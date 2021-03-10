@@ -276,25 +276,58 @@ class ApiController extends Controller
     }
 
 
-    public function scrape()
+    public function scrape_2()
     {
+        /*
         $medecins = Medecin::whereNull('medecin_last_name')->get();
 
         foreach ($medecins as $medecin) {
+            */
 
-            $post_code = $medecin->zip_code;
-            $name = $medecin->medecin_name;
-            $speciality = $medecin->medecin_speciality;
-            $doctolib = 'doctolib';
+        /*
+        $post_code = $medecin->zip_code;
+        $name = '.$medecin->medecin_name.';
+        $speciality = $medecin->medecin_speciality;
+        */
 
-            $client = new Client();
-            $crawler = $client->request('GET', 'https://www.yippy.com/search?query=' . $name . '+' . $post_code . '+' . $speciality . '+' . $doctolib);
+        $post_code = '13127';
+        $name = '"THOMAS RICHARD VITTON"';
+        $speciality = 'Radiologue';
+        $address = 'Arcades des Citeaux VITROLLES';
+        $city = 'VITROLLES';
 
-            //Get the latest post in this category and display the titles
+        $new_address = str_replace([$city, ucfirst(strtolower($city))], '', $address);
 
-            $crawler->filter('div>.field-snippet>span>.value')->each(function ($node) {
+        $doctolib = 'doctolib';
 
-                /*
+        $client = new Client();
+        $crawler = $client->request('GET', 'https://www.yippy.com/search?query=' . $name . '+' . $post_code . '+' . $speciality . '+' . $new_address . '+' . $city . '+' . $doctolib);
+
+        //Get the latest post in this category and display the titles
+
+        $results = $crawler->filter('div>.field-snippet>span>.value');
+
+        $my_array = [];
+
+        foreach ($results as $result) {
+            array_push($my_array, $result->textContent);
+        }
+
+        $new_text = $my_array[0];
+
+        $new_text_1 = str_replace(["Prolongé", "Prenez", "RDV", "en ", "ligne", "avec", "Dr ", ":", ".", ",", $speciality, $new_address, $post_code, ucfirst(strtolower($city)), "Conventionné secteur 1", "Conventionné secteur 2", "Adresse"], "", $new_text);
+
+        $name_medecin_explode = explode(" ", $new_text_1);
+
+        foreach ($name_medecin_explode as $real_name) {
+            if (!$real_name) {
+                unset($name_medecin_explode[array_search('', $name_medecin_explode)]);
+            }
+        }
+
+        dd($name_medecin_explode);
+
+        /*
                 $tableau = [];
                 $text = [$node->text() . '<br>'];
 
@@ -305,8 +338,38 @@ class ApiController extends Controller
                 $new_text_1 = str_replace("Prenez RDV en ligne avec Dr","",$new_text);
 
                 dd($new_text_1);
-                */
-            });
+             
+        
         }
+           */
+    }
+
+
+    public function scrape()
+    {
+
+        $client = new Client();
+        $crawler = $client->request('GET', 'https://medieval4i.com/fr/medecins/Médecin-généraliste/Nice');
+
+        $results = $crawler->filter('div>.field-snippet>span>.value');
+        dd($results);
+
+        $my_array = [];
+
+        foreach ($results as $result) {
+            array_push($my_array, $result->textContent);
+        }
+
+        dd($my_array);
+
+        $name_medecin_explode = explode(" ", $new_text_1);
+
+        foreach ($name_medecin_explode as $real_name) {
+            if (!$real_name) {
+                unset($name_medecin_explode[array_search('', $name_medecin_explode)]);
+            }
+        }
+
+        dd($name_medecin_explode);
     }
 }
