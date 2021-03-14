@@ -55,10 +55,10 @@
                                                 class="icon_info_docteur media_icon_profile_medecin">
                                             <div class="d-flex">
                                                 <h3 class="p-0 m-0 lora ml-2 media_name_medecin">
-                                                    {{ $medecin->medecin_last_name }} 
+                                                    {{ $medecin->medecin_name }} 
                                                 </h3>
                                                 <h4 class="p-0 m-0 lora p_texte_3 ml-2 media_name_medecin">
-                                                    {{ $medecin->medecin_first_name }}
+                                                    
                                                 </h4>
                                             </div>
                                         </div>

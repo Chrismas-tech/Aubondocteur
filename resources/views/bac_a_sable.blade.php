@@ -3,7 +3,7 @@
 
 <ul>
 @foreach ($medecins as $medecin)
-    <li class="display-1">{{$medecin->medecin_first_name}}</li>
+    <li class="display-1">{{$medecin->medecin_name}}</li>
 @endforeach
 </ul>
 

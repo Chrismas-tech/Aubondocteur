@@ -132,8 +132,7 @@ class CompteController extends Controller
     public function add_medecin(Request $request)
     {
         $request->validate([
-            'medecin_first_name' => 'required',
-            'medecin_last_name' => 'required',
+            'medecin_name' => 'required',
             'speciality' => 'required',
             'address' => 'required',
             'city' => 'required',
@@ -148,8 +147,6 @@ class CompteController extends Controller
         /* CAPITALIZE FIRST AND LAST NAME */
 
         $datas = $request->all();
-        $datas["medecin_first_name"] = strtoupper($request->medecin_first_name);
-        $datas["medecin_last_name"] = strtoupper($request->medecin_last_name);
         $datas["city"] = strtoupper($request->city);
 
         Medecin::create($datas);

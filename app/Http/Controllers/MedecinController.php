@@ -2,17 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\City;
 use App\Medecin;
-use App\Review;
 use App\Speciality;
-use App\User;
-use Carbon\Carbon;
-use Carbon\Traits\Date;
-use DateTime;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
+
 
 class MedecinController extends Controller
 {
@@ -46,8 +39,7 @@ class MedecinController extends Controller
         $medecins = Medecin::where('speciality', $result_speciality)
             ->where('city', 'LIKE', $city_uppercase . '%')
             ->where('validation_status_medecin', 1)
-            ->wherenotNull('medecin_last_name')
-            ->orderBy('medecin_last_name', 'asc')
+            ->orderBy('medecin_name', 'asc')
             ->paginate(25);
             
         $nb_medecins = Medecin::where('speciality', $result_speciality)

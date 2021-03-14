@@ -387,8 +387,7 @@ class AdminController extends Controller
     {
         $request->validate([
 
-            'medecin_first_name' => 'required|',
-            'medecin_last_name' => 'required',
+            'medecin_name' => 'required',
             'city' => 'required',
             'zip_code' => 'required',
             'address' => 'required',

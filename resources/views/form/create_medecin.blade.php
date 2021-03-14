@@ -19,26 +19,15 @@
 
                             <div class="input-group-lg mt-4 mb-4">
 
-                                <input id="medecin_first_name" type="text"
-                                    class="form-control @error('medecin_first_name') is-invalid @enderror"
-                                    name="medecin_first_name" value="{{ old('medecin_first_name') }}"
-                                    autocomplete="medecin_first_name" autofocus placeholder="Prénom du médecin">
+                                <input id="medecin_name" type="text"
+                                    class="form-control @error('medecin_name') is-invalid @enderror"
+                                    name="medecin_name" value="{{ old('medecin_name') }}"
+                                    autocomplete="medecin_name" autofocus placeholder="Prénom du médecin">
 
-                                @error('medecin_first_name')
-                                    <div class="text-white mt-1 text-left">{{ $errors->first('medecin_first_name') }}</div>
+                                @error('medecin_name')
+                                    <div class="text-white mt-1 text-left">{{ $errors->first('medecin_name') }}</div>
                                 @enderror
 
-                            </div>
-
-                            <div class="input-group-lg mt-4 mb-4">
-                                <input id="medecin_last_name" type="text"
-                                    class="form-control @error('medecin_last_name') is-invalid @enderror"
-                                    name="medecin_last_name" value="{{ old('medecin_last_name') }}"
-                                    autocomplete="medecin_last_name" autofocus placeholder="Nom du médecin">
-
-                                @error('medecin_last_name')
-                                    <div class="text-white mt-1 text-left">{{ $errors->first('medecin_last_name') }}</div>
-                                @enderror
                             </div>
 
 

@@ -12,7 +12,7 @@
                     <div class="d-flex align-items-center mt-2 mb-2">
                         <img src="{{ asset('img/medecin-icon.png') }}" alt="" class="icon_info_docteur ">
                         <h3 class="p-0 m-0 lora ml-2">
-                            {{ $medecin->medecin_first_name }} {{ $medecin->medecin_last_name }}, {{ $medecin->speciality }}
+                             {{ $medecin->medecin_name }}, {{ $medecin->speciality }}
                         </h3>
                     </div>
 

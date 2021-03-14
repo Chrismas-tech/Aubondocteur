@@ -22,7 +22,7 @@ class SearchBarAdminController extends Controller
         if ($request->ajax()) {
 
             $query = $request->get('query');
-            
+
             $datas = DB::table('cities')
                 ->select('name')->distinct()
                 ->orderBy('name')
@@ -50,8 +50,7 @@ class SearchBarAdminController extends Controller
             $query = $request->get('query');
 
             $datas = DB::table('medecins')
-                ->where('medecin_first_name', 'LIKE', $query . '%')
-                ->orWhere('medecin_last_name', 'LIKE', $query . '%')
+                ->where('medecin_name', 'LIKE', '%' . $query . '%')
                 ->get();
 
             $count_datas = count($datas);
@@ -99,9 +98,7 @@ class SearchBarAdminController extends Controller
             'first_or_last_name_input_admin' => 'required|',
         ]);
 
-        $medecins = Medecin::where('medecin_first_name', 'LIKE', $name . '%')
-            ->orWhere('medecin_last_name', 'LIKE', $name . '%')->paginate(20);
-
+        $medecins = Medecin::where('medecin_name', 'LIKE', $name . '%')->paginate(20);
 
         return view('admin.find_medecin_admin_2', compact('medecins', 'name'));
     }

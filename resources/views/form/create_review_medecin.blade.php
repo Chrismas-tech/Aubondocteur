@@ -12,7 +12,7 @@
                 <div class="card">
 
                     <div class="card-header text-center ">
-                    <h1 class="display-5 lora">Vos impressions sur le Docteur {{$medecin_just_created->medecin_first_name}} {{$medecin_just_created->medecin_last_name}} </h1>
+                    <h1 class="display-5 lora">Vos impressions sur le Docteur  {{$medecin_just_created->medecin_name}} </h1>
                     </div>
 
                     <div class="card-body pd-4 bg_gradient_1">

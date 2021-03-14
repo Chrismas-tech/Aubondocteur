@@ -17,8 +17,7 @@ class CreateMedecinsTable extends Migration
 
             $table->bigIncrements('id');
 
-            $table->string('medecin_first_name');
-            $table->string('medecin_last_name');
+            $table->string('medecin_name');
             $table->string('speciality');
 
             $table->text('address');

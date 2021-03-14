@@ -40,9 +40,9 @@
                             @foreach ($medecin_status_validated as $medecin)
                                 <tr>
                                     <td class="border align-middle text-center font-weight-bold p-2">
-                                        {{ $medecin->medecin_last_name }}</td>
+                                        {{ $medecin->medecin_name }}</td>
                                     <td class="border align-middle text-center font-weight-bold p-2">
-                                        {{ $medecin->medecin_first_name }}</td>
+                                        </td>
                                     <td class="border align-middle text-center lora p-2 p_texte_2 ">
                                         {{ $medecin->speciality }}
                                     </td>
