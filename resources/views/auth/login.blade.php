@@ -2,9 +2,7 @@
 
 @section('content')
 
-    <div
-        class="my_min_height_login mq_h1_font_size jumbotron text-primary bg_photo_3 mb-0 d-lg-flex justify-content-around">
-
+    <div class="mq_h1_font_size jumbotron text-primary bg_photo_3 mb-0 d-lg-flex justify-content-around">
         <div class="bg-white mt-xl-3 mb-5 mb-lg-0 p-1 mb-xl-0 rounded col-12 col-lg-6">
             <div class="text-center mt-2">
                 <h1 class="display-4 lobster">Vous n'avez pas encore de compte ?</h1>
@@ -17,13 +15,11 @@
             </div>
 
             <div style="width:80%;margin:auto;">
-
                 <form method="POST" action="{{ route('register') }}" class="mt-3">
                     @csrf
 
                     <div>
                         <label for="name" class="col-md-4 col-form-label text-md-right"></label>
-
                         <div class="input-group-lg">
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
                                 name="name" value="{{ old('name') }}" autocomplete="name" autofocus
@@ -37,7 +33,7 @@
                         </div>
                     </div>
 
-                    <div class="">
+                    <div>
                         <label for="email" class="col-md-4 col-form-label text-md-right"></label>
 
                         <div class="input-group-lg">
@@ -72,6 +68,7 @@
                             </div>
                         @enderror
                     </div>
+
                     <div>
                         <label for="password-confirm" class="col-md-4 col-form-label text-md-right"></label>
 
@@ -92,10 +89,6 @@
                                 <strong>{{ $message }}</strong>
                             </div>
                         @enderror
-
-
-                    </div>
-                    <div>
                         <div class="text-center mt-4 mb-4  mt-lg-5 mb-lg-5">
                             <button type="submit"
                                 class="btn_login_register_font_size btn btn-primary btn-lg p_texte_1 text-white">
@@ -106,7 +99,6 @@
                 </form>
             </div>
         </div>
-
 
         <div class="bg-white mt-xl-3 p-1 rounded col-12 col-lg-5">
 
